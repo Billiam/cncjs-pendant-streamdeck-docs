@@ -34,20 +34,34 @@
     {{ if $displaySidebar }}
     <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
       <div class="row">
+
+        {{ if ne .Params.toc false -}}
         <div class="col-12 col-lg-2 pb-3 pb-lg-0">
           <div class="sidebar">
             {{ partial "sidebar.html" . }}
           </div>
         </div>
-        {{ if ne .Params.toc false -}}
         <nav class="docs-toc toc-sticky col-12 col-md-3" aria-label="Secondary navigation">
           {{ partial "sidebar/toc.html" . }}
         </nav>
-        {{ end -}}
         <div class="col-12 col-lg-7 col-md-9">
           {{ block "main" . }}
           {{ end }}
         </div>
+
+        {{ else }}
+
+        <div class="col-12 col-sm-2 pb-3 pb-lg-0">
+          <div class="sidebar">
+            {{ partial "sidebar.html" . }}
+          </div>
+        </div>
+        <div class="col-12 col-sm-10">
+          {{ block "main" . }}
+          {{ end }}
+        </div>
+        {{ end -}}
+
       </div>
     </div>
     {{ else }}
