@@ -76,81 +76,81 @@ These variables are available under 3 different objects: [`ui`](#ui), [`cnc`](#c
 
 State related to the current pendant user interface
 
-| Value                 | Type                   | Description                                                                                                                        |
-|-----------------------|------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| `ui.brightness`       | {{< type "Integer" >}} | The current brightness value. [`10` - `100`] {{< badge "success" "Stream Deck only" >}}                                            |
-| `ui.feedrateInterval` | {{< type "Integer" >}} | The amount that feedrate will be increased or decreased by when modified                                                           |
-| `ui.gcodeLimit`       | {{< type "Integer" >}} | Set a hard limit on the number of lines of gcode that will be processed. Affects rendering and boundary data. (_Stream deck only_) |
-| `ui.spindleInterval`  | {{< type "Integer" >}} | The amount that spindle speed will be increased or decreased by when modified                                                      |
-| `ui.userFlags`        | {{< type "Object" >}}  | Object containing [user flag data]({{< ref "actions#user-flag-actions" >}}). Ex: `ui.userFlags.MyValue`                            |
-| `ui.input.value`      | {{< type "String" >}}  | Numeric string representing the current value for the numpad input scene                                                           |
-| `ui.input.previous`   | {{< type "String" >}}  | The previous value of the input being set by the numpad input scene                                                                |
-| `ui.input.type`       | {{< type "String" >}}  | A label for the type of input being set by the numpad input scene                                                                  |
-| `ui.web`              | {{< type "Boolean" >}} | Whether the pendant is being used in a web browser or on a Stream Deck device                                                      |
-| `ui.sceneName`        | {{< type "String" >}}  | The name of the currently active scene                                                                                             |
-| `ui.throttle`         | {{< type "Integer" >}} | Redraw each button at most once every `throttle` milliseconds. (_Stream Deck only_). Default: `0`                                  |
+| Value                 | Type                   | Description                                                                                                                                              |
+|-----------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ui.brightness`       | {{< type "Integer" >}} | The current brightness value. [`10` - `100`] {{< badge "success" "Stream Deck only" >}}                                                                  |
+| `ui.feedrateInterval` | {{< type "Integer" >}} | The amount that feedrate will be increased or decreased by when modified                                                                                 |
+| `ui.gcodeLimit`       | {{< type "Integer" >}} | Set a hard limit on the number of lines of gcode that will be processed. Affects rendering and boundary data. {{< badge "success" "Stream Deck only" >}} |
+| `ui.spindleInterval`  | {{< type "Integer" >}} | The amount that spindle speed will be increased or decreased by when modified                                                                            |
+| `ui.userFlags`        | {{< type "Object" >}}  | Object containing [user flag data]({{< ref "actions#user-flag-actions" >}}). Ex: `ui.userFlags.MyValue`                                                  |
+| `ui.input.value`      | {{< type "String" >}}  | Numeric string representing the current value for the numpad input scene                                                                                 |
+| `ui.input.previous`   | {{< type "String" >}}  | The previous value of the input being set by the numpad input scene                                                                                      |
+| `ui.input.type`       | {{< type "String" >}}  | A label for the type of input being set by the numpad input scene                                                                                        |
+| `ui.web`              | {{< type "Boolean" >}} | Whether the pendant is being used in a web browser or on a Stream Deck device                                                                            |
+| `ui.sceneName`        | {{< type "String" >}}  | The name of the currently active scene                                                                                                                   |
+| `ui.throttle`         | {{< type "Integer" >}} | Redraw each button at most once every `throttle` milliseconds. Default: `0`. {{< badge "success" "Stream Deck only" >}}                                  |
 
 ### cnc
 
 State related to the machine or cncjs's
 
-| Value                   | Type                   | Description                                                                                                                 |
-|-------------------------|------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| `cnc.connected`         | {{< type "Boolean" >}} | Whether cncjs is connected to the machine by serial port                                                                    |
-| `cnc.connecting`        | {{< type "Boolean" >}} | Whether cncjs is currently in the process of connecting                                                                     |
-| `cnc.runState`          | {{< type "String" >}}  | The current controller state. One of [`Idle`, `Alarm`, `Hold`, `Jog`, `Run`]                                                |
-| `cnc.workflowState`     | {{< type "String" >}}  | The cncjs workflow state. One of [`idle`, `paused`, `running`]                                                              |
-| `cnc.feederState`       | {{< type "String" >}}  | The cncjs feeder state. One of [`idle`, `paused`]                                                                           |
-| `cnc.locked`            | {{< type "Boolean" >}} | Whether the controller is in an Alarm Lock state                                                                            |
-| `cnc.elapsedTime`       | {{< type "Integer" >}} | The elapsed job time, in seconds                                                                                            |
-| `cnc.elapsedTimeText`   | {{< type "String" >}}  | The elapsed job time, in `hh:mm:ss` format, or empty string if not available                                                |
-| `cnc.remainingTime`     | {{< type "Integer" >}} | The remaining job time, in seconds                                                                                          |
-| `cnc.remainingTimeText` | {{< type "String" >}}  | The remaining job time, in `hh:mm:ss` format, or empty string if not available                                              |
-| `cnc.alarm`             | {{< type "Boolean" >}} | Whether or not Grbl is in an alarm state                                                                                    |
-| `cnc.alarmText`         | {{< type "String" >}}  | Preformatted alarm text/reason/locked status for button display                                                             |
-| `cnc.alarmReason`       | {{< type "String" >}}  | The reason for an alarm, if known                                                                                           |
-| `cnc.pauseReason`       | {{< type "String" >}}  | Pause reason, if known. Example: `M6`                                                                                       |
-| `cnc.pauseMessage`      | {{< type "String" >}}  | Pause reason text, if known                                                                                                 |
-| `cnc.pauseText`         | {{< type "String" >}}  | Preformatted pause reason and text for button display                                                                       |
-| `cnc.errorMessage`      | {{< type "String" >}}  | The error reason, if the pause state is associated with an error                                                            |
-| `cnc.feedPauseReason`   | {{< type "String" >}}  | The cncjs feed pause reason, if known                                                                                       |
-| `cnc.feedPauseMessage`  | {{< type "String" >}}  | The cncjs feed pause text, if known                                                                                         |
-| `cnc.jogDistance`       | {{< type "Number" >}}  | The distance value to use for jog commands. Does not include units                                                          |
-| `cnc.jogSpeed`          | {{< type "Number" >}}  | The speed to use for smooth jogging. Does not include units                                                                 |
-| `cnc.settings`          | {{< type "Object" >}}  | The current raw Grbl setting values                                                                                         |
-| `cnc.wpos`              | {{< type "Object" >}}  | The current work position                                                                                                   |
-| `cnc.wpos.x`            | {{< type "String" >}}  | The current X work position                                                                                                 |
-| `cnc.wpos.y`            | {{< type "String" >}}  | The current Y work position                                                                                                 |
-| `cnc.wpos.z`            | {{< type "String" >}}  | The current Z work position                                                                                                 |
-| `cnc.wpos.a`            | {{< type "String" >}}  | The current A work position                                                                                                 |
-| `cnc.wpos.b`            | {{< type "String" >}}  | The current B work position                                                                                                 |
-| `cnc.wpos.c`            | {{< type "String" >}}  | The current C work position                                                                                                 |
-| `cnc.displayWpos`       | {{< type "String" >}}  | Preformatted multiline string of all [enabled axes](#machine) and their work positions with string padding for alignment    |
-| `cnc.mpos`              | {{< type "Object" >}}  | The current machine position                                                                                                |
-| `cnc.mpos.x`            | {{< type "String" >}}  | The current X machine position                                                                                              |
-| `cnc.mpos.y`            | {{< type "String" >}}  | The current Y machine position                                                                                              |
-| `cnc.mpos.z`            | {{< type "String" >}}  | The current Z machine position                                                                                              |
-| `cnc.mpos.a`            | {{< type "String" >}}  | The current A machine position                                                                                              |
-| `cnc.mpos.b`            | {{< type "String" >}}  | The current B machine position                                                                                              |
-| `cnc.mpos.c`            | {{< type "String" >}}  | The current C machine position                                                                                              |
-| `cnc.displayMpos`       | {{< type "String" >}}  | Preformatted multiline string of all [enabled axes](#machine) and their machine positions with string padding for alignment |
-| `cnc.modal`             | {{< type "Object" >}}  | Grbl modal state information                                                                                                |
-| `cnc.modal.distance`    | {{< type "String" >}}  | Current motion mode. Either `G90` or `G91`                                                                                  |
-| `cnc.modal.units`       | {{< type "String" >}}  | Current distance units. Either `G20` or `G21`                                                                               |
-| `cnc.modal.wcs`         | {{< type "String" >}}  | The current work offset: One of [`G54`, `G55`, `G56`, `G57`, `G58`, `G59`]                                                  |
-| `cnc.isRelativeMove`    | {{< type "Boolean" >}} | Whether the current modal distance is `G91` (relative)                                                                      |
-| `cnc.distanceUnit`      | {{< type "String" >}}  | The current distance unit, one of `mm` or `in`                                                                              |
-| `cnc.ready`             | {{< type "Boolean" >}} | Whether the machine is connected and either in the `idle` or `jog` (meaning smooth jogging) states                          |
-| `cnc.overrides`         | {{< type "Object" >}}  | Current Grbl speed overrides                                                                                                |
-| `cnc.overrides.feed`    | {{< type "Integer" >}} | The current feed rate override [`10` - `200`]                                                                               |
-| `cnc.overrides.spindle` | {{< type "Integer" >}} | The current spindle speed override [`10` - `200`]                                                                           |
-| `cnc.overrides.rapid`   | {{< type "Integer" >}} | The current rapid speed override. One of: [`25`, `50`, `100`]                                                               |
-| `cnc.hold`              | {{< type "Boolean" >}} | Whether the controller state is currently `Hold`                                                                            |
-| `cnc.paused`            | {{< type "Boolean" >}} | Whether both the cncjs workflow and feed state are both in a paused state                                                   |
-| `cnc.feedPaused`        | {{< type "Boolean" >}} | Whether the cncjs feed state is `paused`                                                                                    |
-| `cnc.idle`              | {{< type "Boolean" >}} | Whether the cncjs workflow and feed state are both in a idle state                                                          |
-| `cnc.running`           | {{< type "Boolean" >}} | Whether the cncjs workflow state is `Running` and the feed state is `idle`                                                  |
-| `cnc.axisLimits`        | {{< type "Object" >}}  | The current Grbl axis limits. Keys depend on [machine axes configuration]({{< ref "configure#machine" >}})                  |
+| Value                    | Type                   | Description                                                                                                                                        |
+|--------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cnc.connected`          | {{< type "Boolean" >}} | Whether cncjs is connected to the machine by serial port                                                                                           |
+| `cnc.connecting`         | {{< type "Boolean" >}} | Whether cncjs is currently in the process of connecting                                                                                            |
+| `cnc.runState`           | {{< type "String" >}}  | The current controller state. One of [`Idle`, `Alarm`, `Hold`, `Jog`, `Run`]                                                                       |
+| `cnc.workflowState`      | {{< type "String" >}}  | The cncjs workflow state. One of [`idle`, `paused`, `running`]                                                                                     |
+| `cnc.feederState`        | {{< type "String" >}}  | The cncjs feeder state. One of [`idle`, `paused`]                                                                                                  |
+| `cnc.locked`             | {{< type "Boolean" >}} | Whether the controller is in an Alarm Lock state                                                                                                   |
+| `cnc.elapsedTime`        | {{< type "Integer" >}} | The elapsed job time, in seconds                                                                                                                   |
+| `cnc.elapsedTimeText`    | {{< type "String" >}}  | The elapsed job time, in `hh:mm:ss` format, or empty string if not available                                                                       |
+| `cnc.remainingTime`      | {{< type "Integer" >}} | The remaining job time, in seconds                                                                                                                 |
+| `cnc.remainingTimeText`  | {{< type "String" >}}  | The remaining job time, in `hh:mm:ss` format, or empty string if not available                                                                     |
+| `cnc.alarm`              | {{< type "Boolean" >}} | Whether or not Grbl is in an alarm state                                                                                                           |
+| `cnc.alarmText`          | {{< type "String" >}}  | Preformatted alarm text/reason/locked status for button display                                                                                    |
+| `cnc.alarmReason`        | {{< type "String" >}}  | The reason for an alarm, if known                                                                                                                  |
+| `cnc.pauseReason`        | {{< type "String" >}}  | Pause reason, if known. Example: `M6`                                                                                                              |
+| `cnc.pauseMessage`       | {{< type "String" >}}  | Pause reason text, if known                                                                                                                        |
+| `cnc.pauseText`          | {{< type "String" >}}  | Preformatted pause reason and text for button display                                                                                              |
+| `cnc.errorMessage`       | {{< type "String" >}}  | The error reason, if the pause state is associated with an error                                                                                   |
+| `cnc.feedPauseReason`    | {{< type "String" >}}  | The cncjs feed pause reason, if known                                                                                                              |
+| `cnc.feedPauseMessage`   | {{< type "String" >}}  | The cncjs feed pause text, if known                                                                                                                |
+| `cnc.jogDistance`        | {{< type "Number" >}}  | The distance value to use for jog commands. Does not include units                                                                                 |
+| `cnc.jogSpeed`           | {{< type "Number" >}}  | The speed to use for smooth jogging. Does not include units                                                                                        |
+| `cnc.settings`           | {{< type "Object" >}}  | The current raw Grbl setting values                                                                                                                |
+| `cnc.wpos`               | {{< type "Object" >}}  | The current work position                                                                                                                          |
+| `cnc.wpos.x`             | {{< type "String" >}}  | The current X work position                                                                                                                        |
+| `cnc.wpos.y`             | {{< type "String" >}}  | The current Y work position                                                                                                                        |
+| `cnc.wpos.z`             | {{< type "String" >}}  | The current Z work position                                                                                                                        |
+| `cnc.wpos.a`             | {{< type "String" >}}  | The current A work position                                                                                                                        |
+| `cnc.wpos.b`             | {{< type "String" >}}  | The current B work position                                                                                                                        |
+| `cnc.wpos.c`             | {{< type "String" >}}  | The current C work position                                                                                                                        |
+| `cnc.displayWpos`        | {{< type "String" >}}  | Preformatted multiline string of all [enabled axes]({{< ref "configure#machine" >}}) and their work positions with string padding for alignment    |
+| `cnc.mpos`               | {{< type "Object" >}}  | The current machine position                                                                                                                       |
+| `cnc.mpos.x`             | {{< type "String" >}}  | The current X machine position                                                                                                                     |
+| `cnc.mpos.y`             | {{< type "String" >}}  | The current Y machine position                                                                                                                     |
+| `cnc.mpos.z`             | {{< type "String" >}}  | The current Z machine position                                                                                                                     |
+| `cnc.mpos.a`             | {{< type "String" >}}  | The current A machine position                                                                                                                     |
+| `cnc.mpos.b`             | {{< type "String" >}}  | The current B machine position                                                                                                                     |
+| `cnc.mpos.c`             | {{< type "String" >}}  | The current C machine position                                                                                                                     |
+| `cnc.displayMpos`        | {{< type "String" >}}  | Preformatted multiline string of all [enabled axes]({{< ref "configure#machine" >}}) and their machine positions with string padding for alignment |
+| `cnc.modal`              | {{< type "Object" >}}  | Grbl modal state information                                                                                                                       |
+| `cnc.modal.distance`     | {{< type "String" >}}  | Current motion mode. Either `G90` or `G91`                                                                                                         |
+| `cnc.modal.units`        | {{< type "String" >}}  | Current distance units. Either `G20` or `G21`                                                                                                      |
+| `cnc.modal.wcs`          | {{< type "String" >}}  | The current work offset: One of [`G54`, `G55`, `G56`, `G57`, `G58`, `G59`]                                                                         |
+| `cnc.isRelativeMove`     | {{< type "Boolean" >}} | Whether the current modal distance is `G91` (relative)                                                                                             |
+| `cnc.distanceUnit`       | {{< type "String" >}}  | The current distance unit, one of `mm` or `in`                                                                                                     |
+| `cnc.ready`              | {{< type "Boolean" >}} | Whether the machine is connected and either in the `idle` or `jog` (meaning smooth jogging) states                                                 |
+| `cnc.overrides`          | {{< type "Object" >}}  | Current Grbl speed overrides                                                                                                                       |
+| `cnc.overrides.feed`     | {{< type "Integer" >}} | The current feed rate override [`10` - `200`]                                                                                                      |
+| `cnc.overrides.spindle`  | {{< type "Integer" >}} | The current spindle speed override [`10` - `200`]                                                                                                  |
+| `cnc.overrides.rapid`    | {{< type "Integer" >}} | The current rapid speed override. One of: [`25`, `50`, `100`]                                                                                      |
+| `cnc.hold`               | {{< type "Boolean" >}} | Whether the controller state is currently `Hold`                                                                                                   |
+| `cnc.paused`             | {{< type "Boolean" >}} | Whether both the cncjs workflow and feed state are both in a paused state                                                                          |
+| `cnc.feedPaused`         | {{< type "Boolean" >}} | Whether the cncjs feed state is `paused`                                                                                                           |
+| `cnc.idle`               | {{< type "Boolean" >}} | Whether the cncjs workflow and feed state are both in a idle state                                                                                 |
+| `cnc.running`            | {{< type "Boolean" >}} | Whether the cncjs workflow state is `Running` and the feed state is `idle`                                                                         |
+| `cnc.axisLimits`         | {{< type "Object" >}}  | The current Grbl axis limits. Keys depend on [machine axes configuration]({{< ref "configure#machine" >}})                                         |
 
 ### `gcode`
 
