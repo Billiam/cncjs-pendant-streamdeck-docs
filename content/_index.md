@@ -1,5 +1,5 @@
 ---
-title: Cncjs Pendant Streamdeck
+title: Cncjs Pendant Stream Deck
 date: 2022-07-19T23:30:00+10:00
 ---
 

@@ -22,7 +22,7 @@ summary: Web and Stream Deck installation instructions
     ```
 5. Restart CNCjs
 
-## Streamdeck
+## Stream Deck
 
 Follow [Web](#web) steps above to generate create a configuration directory, `config.json` file, and button images.
 You can skip the `.cncrc` step if you do not need the web interface.
@@ -31,7 +31,7 @@ You can skip the `.cncrc` step if you do not need the web interface.
 
 _Instructions borrowed from https://github.com/julusian/node-elgato-stream-deck_
 
-On linux, the udev subsystem blocks access to the StreamDeck without some special configuration.
+On linux, the udev subsystem blocks access to the Stream Deck without some special configuration.
 Save the following to `/etc/udev/rules.d/50-elgato.rules` and reload the rules with
 `sudo udevadm control --reload-rules`
 
