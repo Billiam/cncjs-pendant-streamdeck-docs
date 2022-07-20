@@ -1,0 +1,21 @@
+{
+  "name": "cncjs-pendant-streamdeck-docs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Billiam <billiamthesecond@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.md": [
+      "prettier --parser markdown --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  }
+}
