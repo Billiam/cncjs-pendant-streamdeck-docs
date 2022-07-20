@@ -1,0 +1,50 @@
+.docs-toc {
+  order: unset;
+  code {
+    font-size: 0.8rem;
+  }
+  li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  ul li {
+    margin-bottom: 0;
+  }
+  li li {
+    margin-left: 1rem;
+  }
+  ul {
+    margin-top: 0;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+  h4 {
+    font-size: 1rem;
+    font-family: $font-family-base;
+    font-weight: bold;
+  }
+  a {
+    text-decoration: none;
+    code {
+      background: none;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .toc-sticky {
+    order: 2;
+    position: sticky;
+    top: 10px;
+    height: 100vh;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 0.9rem;
+
+    ul, code {
+      font-size: 0.9rem;
+    }
+  }
+}
+

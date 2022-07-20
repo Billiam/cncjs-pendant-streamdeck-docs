@@ -1,0 +1,46 @@
+a code {
+  color: $primary-dark;
+}
+
+.content {
+  code {
+    font-size: 0.9em;
+  }
+  pre code {
+    font-size: 0.8rem;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    code {
+      background: transparent;
+    }
+  }
+
+  h3, h4 {
+    font-weight: 300;
+  }
+}
+
+.title {
+  font-weight: 400;
+  color: $primary-dark;
+}
+
+h2 {
+  background-color: #fbfbfb;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-top: 50px;
+  padding: 5px;
+}
+
+h3 {
+  margin-top: 30px;
+}
+
+.table, .content table {
+  font-size: 0.9em;
+  th {
+    background-color: #eee;
+  }
+}
