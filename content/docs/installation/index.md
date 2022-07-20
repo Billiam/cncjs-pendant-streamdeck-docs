@@ -51,6 +51,8 @@ KERNEL=="hidraw*", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0080", MODE:="666
 KERNEL=="hidraw*", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0086", MODE:="666", GROUP="plugdev"
 ```
 
+Unplug and replug the device after reloading rules if necessary.
+
 Install dependencies for the canvas and Stream Deck libraries:
 
 ```
@@ -60,7 +62,7 @@ apt-get install libusb-1.0-0-dev libudev-dev libcairo2-dev libpango1.0-dev libjp
 Install optional node dependencies:
 
 ```sh
-npm install -g node-canvas @julusian/jpeg-turbo
+npm install -g canvas @julusian/jpeg-turbo
 ```
 
 Install the pendant:
@@ -86,7 +88,7 @@ cncjs-pendant-streamdeck --help
 Windows is completely untested!
 
 `cncjs-pendant-streamdeck` uses the image processing library [`Sharp`](https://github.com/lovell/sharp), which is not
-compatible with `node-canvas` in Windows.
+compatible with `canvas` in Windows.
 
 `cncjs-pendant-streamdeck` supports [`pureimage`](https://github.com/joshmarinacci/node-pureimage) instead for this
 reason.
