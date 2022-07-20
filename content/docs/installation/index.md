@@ -10,9 +10,9 @@ summary: Web and Stream Deck installation instructions
 
 1. Download the [latest release](https://github.com/Billiam/cncjs-pendant-streamdeck/releases) and extract it, to ex: `/home/my-name/cncjs-pendant-streamdeck`
 2. Rename `config.example.json` to `config.json`
-3. Update the `config.json` file with your connection information in the [`"cncjs"`](#cncjs) section.
+3. Update the `config.json` file with your connection information in the [`cncjs`]({{< ref "configure#cncjs" >}}) section.
 4. Edit your `~/.cncrc` file, adding a mount point for this pendant
-    ```
+    ```json
     "mountPoints": [
       {
         "route": "grid",
@@ -25,7 +25,7 @@ summary: Web and Stream Deck installation instructions
 ## Streamdeck
 
 Follow [Web](#web) steps above to generate create a configuration directory, `config.json` file, and button images.
-You can skip the `cncrc` step if you do not need the web interface.
+You can skip the `.cncrc` step if you do not need the web interface.
 
 ### Linux
 
@@ -51,7 +51,7 @@ KERNEL=="hidraw*", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0080", MODE:="666
 KERNEL=="hidraw*", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0086", MODE:="666", GROUP="plugdev"
 ```
 
-Install Stream Deck and canvas dependencies:
+Install dependencies for the canvas and Stream Deck libraries:
 
 ```
 apt-get install libusb-1.0-0-dev libudev-dev libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
@@ -63,17 +63,24 @@ Install optional node dependencies:
 npm install -g node-canvas @julusian/jpeg-turbo
 ```
 
-Install the application:
+Install the pendant:
 
-```bash
+```sh
 npm install -g cncjs-pendant-streamdeck
 ```
 
-Run the pendant
+Run the pendant:
 
 ```sh
 cncjs-pendant-streamdeck --directory /home/my-name/cncjs-pendant-streamdeck
 ```
+
+See other help options, mostly for overriding the cncjs connection information:
+
+```sh
+cncjs-pendant-streamdeck --help
+```
+
 ### Windows
 
 Windows is completely untested!

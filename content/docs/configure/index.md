@@ -15,13 +15,13 @@ modify it as you go, rather than starting from scratch.
 
 The top level configuration object has the following keys:
 
-| Key                   | Type     | Description                               |
-|-----------------------|----------|-------------------------------------------|
-| [`cncjs`](#cncjs)     | `Object` | Connection information                    |
-| [`ui`](#ui)           | `Object` | Global grid size and default colors       |
-| [`buttons`](#buttons) | `Object` | Button display and actions                |
-| [`scenes`](#scenes)   | `Object` | Button layout on individual pages         |
-| [`machine`](#machine) | `Object` | Machine axes and per-axis speed modifiers |
+| Key                   | Type                  | Description                               |
+|-----------------------|-----------------------|-------------------------------------------|
+| [`cncjs`](#cncjs)     | {{< type "Object" >}} | Connection information                    |
+| [`ui`](#ui)           | {{< type "Object" >}} | Global grid size and default colors       |
+| [`buttons`](#buttons) | {{< type "Object" >}} | Button display and actions                |
+| [`scenes`](#scenes)   | {{< type "Object" >}} | Button layout on individual pages         |
+| [`machine`](#machine) | {{< type "Object" >}} | Machine axes and per-axis speed modifiers |
 
 ## `cncjs`
 
@@ -39,17 +39,16 @@ Used to configure connection to the cncjs server, and controller serial port
     "socketAddress": "localhost",
     "socketPort": 8000
   }
-}
 ```
 
-| Key                     | Type                 | Description                                                                                        |
-|-------------------------|----------------------|----------------------------------------------------------------------------------------------------|
-| `accessTokenExpiration` | (`String`,`Integer`) | Expiration time web token, in seconds or as a duration string (_Stream Deck only_). Default: `30d` |
-| `baudRate`              | `Integer`            | Serial connection baud rate                                                                        |
-| `port`                  | `String`             | Serial connection port                                                                             |
-| `controllerType`        | `Enum`               | Controller type. Allowed: [`Grbl`]                                                                 |
-| `socketAddress`         | `String`             | URL for socket connection to cncjs. Usually `localhost`                                            |
-| `socketPort`            | `Integer`            | Socket connection port for cncjs. Usually `80` or `8000`                                           |
+| Key                     | Type                                                               | Description                                                                                                                |
+|-------------------------|--------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `accessTokenExpiration` | {{< type "String" >}}, {{< type "Integer" >}} | Expiration time web token, in seconds or as a duration string. Default: `30d`. {{< badge "success" "Stream Deck only" >}} |
+| `baudRate`              | {{< type "Integer" >}}                                                           | Serial connection baud rate                                                                                                |
+| `port`                  | {{< type "String" >}}                                                            | Serial connection port                                                                                                     |
+| `controllerType`        | {{< type "Enum" >}}                                                              | Controller type. Allowed: [`Grbl`]                                                                                         |
+| `socketAddress`         | {{< type "String" >}}                                                            | URL for socket connection to cncjs. Usually `localhost`                                                                    |
+| `socketPort`            | {{< type "Integer" >}}                                                           | Socket connection port for cncjs. Usually `80` or `8000`                                                                   |
 
 ## `machine`
 
@@ -69,8 +68,8 @@ Machine axes and per-axis speed modifiers
 ```
 | Key                                | Type                           | Description                                                     |
 |------------------------------------|--------------------------------|-----------------------------------------------------------------|
-| `axes`                             | `String[]`                     | Array of axes in use. Allowed values: [`a`,`b`,`c`,`x`,`y`,`z`] |
-| [`axisSpeeds`](#machineaxisSpeeds) | [`Object`](#machineaxisSpeeds) | Per-axis speed overrides, used for smooth jogging               |
+| `axes`                             | {{< type "String[]" >}}                      | Array of axes in use. Allowed values: [`a`,`b`,`c`,`x`,`y`,`z`] |
+| [`axisSpeeds`](#machineaxisspeeds) | [{{< type "Object" >}} ](#machineaxisspeeds) | Per-axis speed overrides, used for smooth jogging               |
 
 ### `machine/axisSpeeds`
 
@@ -78,12 +77,12 @@ Override smooth jog speeds on a per-axis basis. Allows moving specific axes slow
 
 | Key | Type     | Description                                          |
 |-----|----------|------------------------------------------------------|
-| `a` | `Number` | Travel speed multiplier for the A axis. Default: `1` |
-| `b` | `Number` | Travel speed multiplier for the B axis. Default: `1` |
-| `c` | `Number` | Travel speed multiplier for the C axis. Default: `1` |
-| `x` | `Number` | Travel speed multiplier for the X axis. Default: `1` |
-| `y` | `Number` | Travel speed multiplier for the Y axis. Default: `1` |
-| `z` | `Number` | Travel speed multiplier for the Z axis. Default: `1` |
+| `a` | {{< type "Number" >}}  | Travel speed multiplier for the A axis. Default: `1` |
+| `b` | {{< type "Number" >}}  | Travel speed multiplier for the B axis. Default: `1` |
+| `c` | {{< type "Number" >}}  | Travel speed multiplier for the C axis. Default: `1` |
+| `x` | {{< type "Number" >}}  | Travel speed multiplier for the X axis. Default: `1` |
+| `y` | {{< type "Number" >}}  | Travel speed multiplier for the Y axis. Default: `1` |
+| `z` | {{< type "Number" >}}  | Travel speed multiplier for the Z axis. Default: `1` |
 
 ## `ui`
 
@@ -97,6 +96,7 @@ Configuration for global interface settings.
     "columns": 5,
     "font": "monospace",
     "fontSize": 16,
+    "lineHeight": 1.2,
     "gcodeColors": {
       "G0": "#52ff2e",
       "G1": "#9a96ff",
@@ -123,20 +123,20 @@ Configuration for global interface settings.
 }
 ```
 
-| Key                             | Type                       | Description                                                                                  |
-|---------------------------------|----------------------------|----------------------------------------------------------------------------------------------|
-| `bgColor`                       | (`Integer`,`String`)       | Default background color for buttons. May be a color string or [palette](#uipalette) index   |
-| `brightness`                    | `Integer`                  | Default Stream Deck brightness. [`10` - `100`]                                               |
-| `columns`                       | `Integer`                  | Number of columns to display                                                                 |
-| `rows`                          |                            | Number of rows to display                                                                    |
-| `font`                          | `String`                   | Font to use for text display. Default: `monospace`                                           |
-| `fontSize`                      | `String`                   | Font size to use for text display                                                            |
-| `lineHeight`                    | `String`                   | Line height for text display as a percentage of font size. Default: `1.1`                    |
-| [`gcodeColors`](#uigcodeColors) | [`Object`](#uigcodeColors) | Line and curve colors for gcode rendering.                                                   |
-| `palette`                       | `String[]`                 | Array of colors that buttons and other color settings may refer to by index                  |
-| `progressColor`                 | (`Integer`,`String`)       | Color to use for button hold indicator. May be a color string or [palette](#uipalette) index |
-| `textColor`                     | (`Integer`,`String`)       | Color to use for button text. May be a color string or [palette](#uipalette) index           |
-| `timeout`                       | `Integer`                  | Duration, in seconds, before blanking display. _Stream Deck only_.                           |
+| Key                            | Type                                           | Description                                                                                  |
+|--------------------------------|------------------------------------------------|----------------------------------------------------------------------------------------------|
+| `bgColor`                      | {{< type "Integer" >}}, {{< type "String" >}}  | Default background color for buttons. May be a color string or [palette](#uipalette) index   |
+| `brightness`                   | {{< type "Integer" >}}                         | Default brightness. [`10` – `100`] {{< badge "success" "Stream Deck only" >}}                |
+| `columns`                     | {{< type "Integer" >}}                         | Number of columns to display                                                                 |
+| `rows`                         | {{< type "Integer" >}}                         | Number of rows to display                                                                    |
+| `font`                         | {{< type "String" >}}                          | Font to use for text display. Default: `monospace`                                           |
+| `fontSize`                     | {{< type "String" >}}                          | Font size to use for text display                                                            |
+| `lineHeight`                   | {{< type "String" >}}                          | Line height for text display as a percentage of font size. Default: `1.1`                    |
+| [`gcodeColors`](#uigcodecolors) | [{{< type "Object" >}}](#uigcodecolors)                     | Line and curve colors for gcode rendering.                                                   |
+| `palette`                      | {{< type "String[]" >}}                        | Array of colors that buttons and other color settings may refer to by index                  |
+| `progressColor`                | {{< type "Integer" >}}, {{< type "String" >}} | Color to use for button hold indicator. May be a color string or [palette](#uipalette) index |
+| `textColor`                    | {{< type "Integer" >}}, {{< type "String" >}} | Color to use for button text. May be a color string or [palette](#uipalette) index           |
+| `timeout`                      | {{< type "Integer" >}}                         | Duration, in seconds, before blanking display. {{< badge "success" "Stream Deck only" >}}   |
 
 ### `ui/gcodeColors`
 
@@ -145,9 +145,9 @@ Palette colors are not supported here.
 
 | Key    | Type     | Description                              |
 |--------|----------|------------------------------------------|
-| `G0`   | `String` | Color to use for rapid travel moves.     |
-| `G1`   | `String` | Color to use for straight line cut moves |
-| `G2G3` | `String` | Color to use for curve cut moves         |
+| `G0`   | {{< type "String" >}}  | Color to use for rapid travel moves.     |
+| `G1`   | {{< type "String" >}}  | Color to use for straight line cut moves |
+| `G2G3` | {{< type "String" >}}  | Color to use for curve cut moves         |
 
 The following variables are available to button conditions (like `if` and `disabled`), and templated text.
 
@@ -194,15 +194,15 @@ can be referred to by button actions for navigation.
 
 | Key                                             | Type                               | Description    |
 |-------------------------------------------------|------------------------------------|----------------|
-| [`<unique scene name>`](#scenesuniquescenename) | [`Object`](#scenesuniquescenename) | A named scene  |
+| [`<unique scene name>`](#scenesunique-scene-name) | [{{< type "Object" >}} ](#scenesunique-scene-name) | A named scene  |
 
 ### `scenes/<unique scene name>`
 
 Individual scenes contain a single key: `buttons`.
 
-| Key       | Type                | Description             |
-|-----------|---------------------|-------------------------|
-| `buttons` | `(String,Null)[][]` | Nested array of buttons |
+| Key       | Type                              | Description             |
+|-----------|-----------------------------------|-------------------------|
+| `buttons` | {{< type "(String, Null)[][]" >}} | Nested array of buttons |
 
 The `buttons` value is a nested array of button IDs, with each inner array representing a row of buttons.
 
@@ -253,6 +253,21 @@ Several scenes have special meaning:
 * The `numpad` scene must exist _if_ any buttons use the `enterWcs` or `enterPosition` button actions.
 * The `gcodeList` scene _should not_ exist in your scenes list, but is always available for navigation events anyway.
 
+### Gcode File list
+
+The file list scene layout is not configurable, since it is dynamically generated. However, the buttons used in this scene can have their appearance customized.
+
+It is recommended that configuration of these buttons be limited background color and image only.
+
+| Key                      | Description                                                           |
+|--------------------------|-----------------------------------------------------------------------|
+| `fileListFile`           | GCode file button                                                     |
+| `fileListFolder`         | Subfolder button                                                      |
+| `fileListPreviousFolder` | "Up a directory" button                                               |
+| `fileListDownArrow`      | Down arrow for scrolling when the file list overflows the grid layout |
+| `fileListUpArrow`        | Up arrow for scrolling when the file list overflows the grid layout   |
+| `sortScene`              | Button that links to a scene where file sort options can be selected  |
+
 ## `buttons`
 
 
@@ -281,24 +296,24 @@ pressed, released or held. [`Scenes`](#scenes) will refer to these buttons by th
 }
 ```
 
-| Key                                             | Type                                 | Description    |
-|-------------------------------------------------|--------------------------------------|----------------|
-| [`<unique button id>`](buttonsuniquebuttonname) | [`Object`](#buttonsuniquebuttonname) | A named button |
+| Key                                                | Type                                                 | Description    |
+|----------------------------------------------------|------------------------------------------------------|----------------|
+| [`<unique button id>`](#buttonsunique-button-name) | [{{< type "Object" >}} ](#buttonsunique-button-name) | A named button |
 
 ### `buttons/<unique button name>`
 
-| Key                          | Type                         | Description                                                                                                                                             |
-|------------------------------|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`actions`](#buttonactions)  | [`Object[]`](#buttonactions) | Actions to take when button is pressed, released or held                                                                                                |
-| `bgColor`                    | (`Integer`,`String`)         | Background color. May be a color string or [palette](#uipalette) index                                                                                  |
-| `columns`                    | `Integer`                    | Number of columns the button will occupy. Default: `1`                                                                                                  |
-| `rows`                       | `Integer`                    | Number of rows the button will occupy. Default: `1`                                                                                                     |
-| `type`                       | `Enum`                       | Changes the button's behavior and appearance. Allowed: [`gcodePreview`]                                                                                 |
-| `icon`                       | `String`                     | Image path to display, relative to `public` directory. Image will be shown over background, and behind text.                                            |
-| `if`                         | `String`                     | Condition used for hiding and showing the button. See: [conditions](#conditions)                                                                        |
-| `disabled`                   | `String`                     | Condition used for disablind and enabling the button. See: [conditions](#conditions)                                                                    |
-| `text`                       | `String`                     | Text or text template that to be displayed on the button. See: [templates](#templates)                                                                  |
-| `textAlignment`              | `Enum`                       | Text position within the button. Allowed: [`top left`, `top center`, `top right`, `left`,`center`,`right`,`bottom left`,`bottom center`,`bottom right`] |
+| Key                          | Type                                          | Description                                                                                                                                             |
+|------------------------------|-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`actions`](#buttonactions)  | [{{< type "Object[]" >}} ](#buttonactions)    | Actions to take when button is pressed, released or held                                                                                                |
+| `bgColor`                    | {{< type "Integer" >}}, {{< type "String" >}} | Background color. May be a color string or [palette](#uipalette) index                                                                                  |
+| `columns`                    | {{< type "Integer" >}}                        | Number of columns the button will occupy. Default: `1`                                                                                                  |
+| `rows`                       | {{< type "Integer" >}}                        | Number of rows the button will occupy. Default: `1`                                                                                                     |
+| `type`                       | {{< type "Enum" >}}                           | Changes the button's behavior and appearance. Allowed: [`gcodePreview`]                                                                                 |
+| `icon`                       | {{< type "String" >}}                         | Image path to display, relative to `public` directory. Image will be shown over background, and behind text.                                            |
+| `if`                         | {{< type "String" >}}                         | Condition used for hiding and showing the button. See: [conditions]({{<ref "variables#conditions" >}})                                                  |
+| `disabled`                   | {{< type "String" >}}                         | Condition used for disabling and enabling the button. See: [conditions]({{<ref "variables#conditions" >}})                                              |
+| `text`                       | {{< type "String" >}}                         | Text or text template that to be displayed on the button. See: [templates](#templates)                                                                  |
+| `textAlignment`              | {{< type "Enum" >}}                           | Text position within the button. Allowed: [`top left`, `top center`, `top right`, `left`,`center`,`right`,`bottom left`,`bottom center`,`bottom right`] |
 
 
 ### `button/actions`
@@ -309,8 +324,8 @@ or when released, or when held down for a few moments, or a combination of those
 When a `hold` action is defined, any following `up` action will be skipped. This allows buttons to perform an action when
 pressed briefly, and perform a different action if pressed for a longer period, exclusively.
 
-| Key         | Type       | Description                                                                                  |
-|-------------|------------|----------------------------------------------------------------------------------------------|
-| `action`    | `String`   | The name of an action which will be triggered based on the `event`. See: [actions](#actions) |
-| `event`     | `Enum`     | When the action will take place. Allowed: [`up`,`down`,`hold`]. Default: `down`              |
-| `arguments` | `String[]` | Options passed to the event. See: [actions](#actions) for specific arguments for each event  |
+| Key         | Type                    | Description                                                                                               |
+|-------------|-------------------------|-----------------------------------------------------------------------------------------------------------|
+| `action`    | {{< type "String" >}}   | The name of an action which will be triggered based on the `event`. See: [actions]({{< ref "actions" >}}) |
+| `event`     | {{< type "Enum" >}}     | When the action will take place. Allowed: [`up`,`down`,`hold`]. Default: `down`                           |
+| `arguments` | {{< type "String[]" >}} | Options passed to the event. See: [actions]({{< ref "actions" >}}) for specific arguments for each event  |

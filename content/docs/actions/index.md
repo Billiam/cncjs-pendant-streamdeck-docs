@@ -6,14 +6,25 @@ weight: 4
 summary: Reference for actions that can be used by buttons
 ---
 
+If a button has any arguments available, they are document below.
+
+Button arguments are always an array of strings, like:
+
+```json
+{
+  "arguments": ["argument 1", "argument 2", "argument 3"]
+}
+```
+
+
 ## Navigation actions
 
 There are several different actions used for navigating between scenes. The difference between these is what happens
-when navigating back with `backScene`.
+when navigating back with [`backScene`]({{< ref "#backscene" >}}).
 
-### `actions/navigate`
+### `navigate`
 
-Change to the selected scene. `backScene` will return to the previous scene where the navigation was triggered.
+Change to the selected scene. [`backScene`]({{< ref "#backscene" >}}) will return to the previous scene where the navigation was triggered.
 
 | Argument | Description             |
 |----------|-------------------------|
@@ -33,7 +44,7 @@ Change to the selected scene. `backScene` will return to the previous scene wher
 }
 ```
 
-### `actions/setScene`
+### `setScene`
 
 Change to the selected scene, clearing all back button history. This can be used to return "home" without allowing a `backScene` action afterward
 
@@ -41,7 +52,7 @@ Change to the selected scene, clearing all back button history. This can be used
 |----------|-------------------------|
 | scene id | The scene to change to  |
 
-### `actions/swapScene`
+### `swapScene`
 
 Replace the current scene with the selected scene. `backScene` will return to the scene _before_ the scene where the action was triggered. This can be used to apparently change several button states at once invisibly.
 
@@ -49,31 +60,31 @@ Replace the current scene with the selected scene. `backScene` will return to th
 |----------|-------------------------|
 | scene id | The scene to change to  |
 
-### `actions/backScene`
+### `backScene`
 
 Returns to the previous scene.
 
 ## Jogging actions
 
-### `actions/jog`
+### `jog`
 
-Jog in the given direction, based on `cnc.jogDistance`
+Jog in the given direction, based on [`jogDistance`](#jogdistance)
 
-| Argument  | Description                                           |
-|-----------|-------------------------------------------------------|
-| direction | The direction of motion. One of `-` or `+`            |
-| axis      | The axis to move, one of `x`, `y`, `z`, `a`, `b`, `c` |
+| Argument | Description                                           |
+|----------|-------------------------------------------------------|
+| sign     | The direction of motion. One of `-` or `+`            |
+| axis     | The axis to move, one of `x`, `y`, `z`, `a`, `b`, `c` |
 
-### `actions/startSmoothJog`
+### `startSmoothJog`
 
 Start smooth jogging in the given direction
 
-Based on `cnc.jogSpeed` and `machine.axisSpeeds`. Multiple jog directions may be active at the same time.
+Based on [`jogSpeed`](#jogspeed) and the [`machine.axisSpeeds`]({{< ref "configure#machine" >}}) config. Multiple jog directions may be active at the same time.
 
-| Argument  | Description                                           |
-|-----------|-------------------------------------------------------|
-| direction | The direction of motion. One of `-` or `+`            |
-| axis      | The axis to move, one of `x`, `y`, `z`, `a`, `b`, `c` |
+| Argument | Description                                           |
+|----------|-------------------------------------------------------|
+| sign     | The direction of motion. One of `-` or `+`            |
+| axis     | The axis to move, one of `x`, `y`, `z`, `a`, `b`, `c` |
 
 **example**
 
@@ -93,76 +104,76 @@ Based on `cnc.jogSpeed` and `machine.axisSpeeds`. Multiple jog directions may be
 }
 ```
 
-### `actions/stopSmoothJog`
+### `stopSmoothJog`
 
 Stop smooth jogging in the given direction.
 
-| Argument  | Description                                           |
-|-----------|-------------------------------------------------------|
-| direction | The direction of motion. One of `-` or `+`            |
-| axis      | The axis to move, one of `x`, `y`, `z`, `a`, `b`, `c` |
+| Argument | Description                                           |
+|----------|-------------------------------------------------------|
+| sign     | The direction of motion. One of `-` or `+`            |
+| axis     | The axis to move, one of `x`, `y`, `z`, `a`, `b`, `c` |
 
-### `actions/jogDistance`
+### `jogDistance`
 
-Change the current jog distance, which affects future [`jog`](#actions/jog) distances.
+Change the current jog distance, which affects future [`jog`](#jog) distances.
 
-| Argument  | Description                                                                 |
-|-----------|-----------------------------------------------------------------------------|
-| direction | Whether to increase or decrease the current jog distance. One of `-` or `+` |
+| Argument | Description                                                                 |
+|----------|-----------------------------------------------------------------------------|
+| sign     | Whether to increase or decrease the current jog distance. One of `-` or `+` |
 
-### `actions/jogSpeed`
+### `jogSpeed`
 
-Change the current smooth jog speed, which affects future [`smoothjog`](#actions/startSmoothJog) speeds.
+Change the current smooth jog speed, which affects future [`smoothjog`](#startsmoothjog) speeds.
 
-| Argument  | Description                                                                     |
-|-----------|---------------------------------------------------------------------------------|
-| direction | Whether to increase or decrease the current smooth jog speed. One of `-` or `+` |
+| Argument | Description                                                                     |
+|----------|---------------------------------------------------------------------------------|
+| sign     | Whether to increase or decrease the current smooth jog speed. One of `-` or `+` |
 
 ## Interface actions
 
-### `actions/brightness`
+### `brightness`
 
-Change the current screen brightness (_Stream Deck only_)
+Change the current screen brightness. {{< badge "success" "Stream Deck only" >}}
 
-### `actions/fullscreen`
+### `fullscreen`
 
-Toggle fullscreen (_web only_)
+Toggle fullscreen {{< badge "primary" "web only" >}}
 
 ## Override actions
 
-### `actions/feedrate`
+### `feedrate`
 
 Change the feedrate override
 
-| Argument  | Description                                                     |
-|-----------|-----------------------------------------------------------------|
-| direction | Whether to increase or decrease the feedrate. One of `-` or `+` |
+| Argument | Description                                                     |
+|----------|-----------------------------------------------------------------|
+| sign     | Whether to increase or decrease the feedrate. One of `-` or `+` |
 
-### `actions/toggleFeedrateInterval`
+### `toggleFeedrateInterval`
 
-Toggle how much the feedrate is changed by the [feedrate action](#actionsfeedrate), either 1% or 10%.
+Toggle how much the feedrate is changed by the [feedrate action](#feedrate), either 1% or 10%.
 
-### `actions/resetFeedrate`
+### `resetFeedrate`
 
 Reset the feedrate override to 100%
 
-### `actions/spindle`
+### `spindle`
 
-Change the spindle speed override based on the [spindle interval](#actionstoggleSpindleInterval)
+Change the spindle speed override based on the [spindle interval](#togglespindleinterval)
 
-| Argument  | Description                                                          |
-|-----------|----------------------------------------------------------------------|
-| direction | Whether to increase or decrease the spindle speed. One of `-` or `+` |
+| Argument | Description                                                          |
+|----------|----------------------------------------------------------------------|
+| sign     | Whether to increase or decrease the spindle speed. One of `-` or `+` |
 
-### `actions/toggleSpindleInterval`
+### `toggleSpindleInterval`
 
-Toggle how much the spindle speed is changed by the [spindle action](#actionsspindle), either 1% or 10%.
+Toggle how much the spindle speed is changed by the [spindle action](#spinde), either 1% or 10%.
 
-### `actions/resetSpindle`
+### `resetSpindle`
 
 Reset the spindle speed override to 100%
 
-### `actions/setRapids`
+### `setRapids`
 
 Change the rapid speed override
 
@@ -173,13 +184,13 @@ Change the rapid speed override
 
 ## User flag actions
 
-User flags are arbitrary, temporary variables that can be displayed as [dynamic text](#templates) in buttons, or used as
-[conditions](#conditions) for changing a button's visibility or enabled/disabled status. They can be set, removed, or
+User flags are arbitrary, temporary variables that can be displayed as [dynamic text]({{< ref "variables#templates" >}}) in buttons, or used as
+[conditions]({{< ref "variables#conditions" >}}) for changing a button's visibility or enabled/disabled status. They can be set, removed, or
 toggled.
 
-These variables are not persisted, and will be reset when the page is reloaded, or when the stream deck process is restarted.
+These variables are not persisted, and will be reset when the page is reloaded, or when the Stream Deck process is restarted.
 
-### `actions/setUserFlag`
+### `setUserFlag`
 
 Associate an arbitrary name with a string value
 
@@ -188,7 +199,7 @@ Associate an arbitrary name with a string value
 | key      | A name to associate with a string value |
 | value    | The value to save in the above key      |
 
-### `actions/deleteUserFlag`
+### `deleteUserFlag`
 
 Remove an existing user flag
 
@@ -196,7 +207,7 @@ Remove an existing user flag
 |----------|------------------------------|
 | key      | The user flag name to remove |
 
-### `actions/deleteUserFlag`
+### `deleteUserFlag`
 
 Toggle a user flag.
 
@@ -208,7 +219,7 @@ The user flag does not need to exist before toggling. It will be set to `true` o
 
 ## Numeric input actions
 
-### `actions/input`
+### `input`
 
 Adds one or more characters to the end of the current numeric input
 
@@ -216,7 +227,7 @@ Adds one or more characters to the end of the current numeric input
 |----------|-------------------------------------------------|
 | value    | The string to append to the current input value |
 
-### `actions/inputCommand`
+### `inputCommand`
 
 Input commands modify the current input value.
 
@@ -229,13 +240,13 @@ Input commands modify the current input value.
 * `toggleSign`: Flip the current input value from positive to negative, or negative to positive
 * `backspace`: Remove the last character from the end of the current input value
 
-### `actions/completeInput`
+### `completeInput`
 
 Save the current value and return to the previous scene
 
 ## Positioning actions
 
-### `actions/goto`
+### `goto`
 
 Move to a specific absolute machine position one one or more axes.
 
@@ -265,23 +276,23 @@ In the below example, the machine will be moved to 10% of the maximum Y range, 3
 }
 ```
 
-### `actions/homing`
+### `homing`
 
 Home all axes
 
-### `actions/enterPosition`
+### `enterPosition`
 
 Opens the special `numpad` scene for the selected axis. When a number has been entered and confirmed with the
-[`completeInput`](#actionscompleteInput) action, the machine will be moved to selected position on the axis.
+[`completeInput`](#completeinput) action, the machine will be moved to selected position on the axis.
 
 | Argument | Description                                           |
 |----------|-------------------------------------------------------|
 | axis     | The axis to move, one of `x`, `y`, `z`, `a`, `b`, `c` |
 
-### `actions/enterWcs`
+### `enterWcs`
 
 Opens the special `numpad` scene for the selected axis. When a number has been entered and confirmed with the
-[`completeInput`](#actionscompleteInput) action, the selected axis's work coordinate offset will be changed to the
+[`completeInput`](#completeinput) action, the selected axis's work coordinate offset will be changed to the
 selected value
 
 | Argument | Description                                           |
@@ -291,15 +302,15 @@ selected value
 
 ## Gcode actions
 
-### `actions/refreshWatchFolder`
+### `refreshWatchFolder`
 
 Refresh the cncjs watch folder and open the [file list](#filelist)
 
-### `actions/clearGcode`
+### `clearGcode`
 
 Clears cncjs's loaded gcode, if a gcode file has been loaded
 
-### `actions/gcode`
+### `gcode`
 
 Run arbitrary gcode
 
@@ -307,7 +318,7 @@ Run arbitrary gcode
 |----------|--------------|
 | gcode    | Gcode to run |
 
-### `actions/macro`
+### `macro`
 
 Run a cncjs macro. Macros run from this pendant do not currently have access to some cncjs variables,
 like `[ymin]` and `[xmax]`. Macros which require these should not be used.
@@ -334,42 +345,42 @@ like `[ymin]` and `[xmax]`. Macros which require these should not be used.
 
 These actions relate to the current feed and run state
 
-### `actions/connect`
+### `connect`
 
 If disconnected, `connect` will attempt to open the serial port using the [cncjs](#cncjs)` serial configuration.
 
-### `actions/run`
+### `run`
 
 Start running the loaded gcode
 
-### `actions/stop`
+### `stop`
 
 Stop running the current gcode job
 
-### `actions/pause`
+### `pause`
 
 Pause the currently running gcode job
 
-### `actions/hold`
+### `hold`
 
 Feed hold. Decelerate axes and pause the current job
 
-### `actions/unhold`
+### `unhold`
 
 Cycle start. Resume cutting after a feed hold
 
-### `actions/reset`
+### `reset`
 
 Soft reset the controller, maintaining machine position.
 
-### `actions/unlock`
+### `unlock`
 
 Issue an Alarm Unlock command
 
-### `actions/stopFeed`
+### `stopFeed`
 
 Stop cncjs's feeder queue
 
-### `actions/startFeed`
+### `startFeed`
 
 Start cncjs's feeder queue if stopped

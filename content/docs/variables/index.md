@@ -12,8 +12,8 @@ You may want to conditionally hide buttons, or visibly disable them, based on th
 is currently running, whether the pendant is running in a web browser or a Stream Deck, whether gcode has been loaded,
 and so on.
 
-The `enabled` and `if` properties of a [button's](#buttonsuniquebuttonname) configuration are strings which are
-evaluated and can execute a limited set of javascript.
+The `disabled` and `if` properties of a [button's]({{< ref "configure#buttonsunique-button-name" >}}) configuration are strings which are
+evaluated with a limited set of javascript.
 
 Math, ternary, numeric comparison and logical operators are allowed, but methods may not be executed.
 
@@ -42,7 +42,7 @@ hidden for `if` properties, or enabled for `disabled` properties.
 
 ## Templates
 
-A [button's](#buttonsuniquebuttonname) `text` configuration value can be used to display a plain text string, but it can also act as a simple text
+A [button's]({{< ref "configure#buttonsunique-button-name" >}}) `text` configuration value can be used to display a plain text string, but it can also act as a simple text
 _template_, containing and displaying application state information, which will be updated and re-rendered whenever any
 of the referenced state changes.
 
@@ -70,23 +70,23 @@ Variables represent pieces of application state that can be used for [conditions
 [text templates](#templates). Some of these values are internal only, and unlikely to be useful for button
 display. These have not been documented below.
 
-These variables are available under 3 different objects: [`ui`](#ui-1), [`cnc`](#cnc-1) and [`gcode`](#gcode).
+These variables are available under 3 different objects: [`ui`](#ui), [`cnc`](#cnc) and [`gcode`](#gcode).
 
 ### `ui`
 
 State related to the current pendant user interface
 
-| Value                 | Type      | Description                                                                      |
-|-----------------------|-----------|----------------------------------------------------------------------------------|
-| `ui.brightness`       | `Integer` | The current brightness value. _Stream Deck only_ [`10` - `100`]                  |
-| `ui.feedrateInterval` | `Integer` | The amount that feedrate will be increased or decreased by when modified         |
-| `ui.spindleInterval`  | `Integer` | The amount that spindle speed will be increased or decreased by when modified    |
-| `ui.userFlags`        | `Object`  | Object containing [user flag data](#userflagactions). Ex: `ui.userFlags.MyValue` |
-| `ui.input.value`      | `String`  | Numeric string representing the current value for the numpad input scene         |
-| `ui.input.previous`   | `String`  | The previous value of the input being set by the numpad input scene              |
-| `ui.input.type`       | `String`  | A label for the type of input being set by the numpad input scene                |
-| `ui.web`              | `Boolean` | Whether the pendant is being used in a web browser or on a Stream Deck device    |
-| `ui.sceneName`        | `String`  | The name of the currently active scene                                           |
+| Value                 | Type      | Description                                                                                             |
+|-----------------------|-----------|---------------------------------------------------------------------------------------------------------|
+| `ui.brightness`       | `Integer` | The current brightness value. [`10` - `100`] {{< badge "success" "Stream Deck only" >}}                 |
+| `ui.feedrateInterval` | `Integer` | The amount that feedrate will be increased or decreased by when modified                                |
+| `ui.spindleInterval`  | `Integer` | The amount that spindle speed will be increased or decreased by when modified                           |
+| `ui.userFlags`        | `Object`  | Object containing [user flag data]({{< ref "actions#user-flag-actions" >}}). Ex: `ui.userFlags.MyValue` |
+| `ui.input.value`      | `String`  | Numeric string representing the current value for the numpad input scene                                |
+| `ui.input.previous`   | `String`  | The previous value of the input being set by the numpad input scene                                     |
+| `ui.input.type`       | `String`  | A label for the type of input being set by the numpad input scene                                       |
+| `ui.web`              | `Boolean` | Whether the pendant is being used in a web browser or on a Stream Deck device                           |
+| `ui.sceneName`        | `String`  | The name of the currently active scene                                                                  |
 
 ### cnc
 
@@ -148,7 +148,7 @@ State related to the machine or cncjs's
 | `cnc.feedPaused`        | `Boolean` | Whether the cncjs feed state is `paused`                                                                                    |
 | `cnc.idle`              | `Boolean` | Whether the cncjs workflow and feed state are both in a idle state                                                          |
 | `cnc.running`           | `Boolean` | Whether the cncjs workflow state is `Running` and the feed state is `idle`                                                  |
-| `cnc.axisLimits`        | `Object`  | The current Grbl axis limits. Keys depend on [machine axes configuration](#machine)                                         |
+| `cnc.axisLimits`        | `Object`  | The current Grbl axis limits. Keys depend on [machine axes configuration]({{< ref "configure#machine" >}})                  |
 
 ### `gcode`
 
@@ -171,18 +171,3 @@ State related to the currently loaded gcode.
 | `gcode.displayRange.x`     | `String` | Total gcode width along the X axis                       |
 | `gcode.displayRange.y`     | `String` | Total gcode depth along the Y axis                       |
 | `gcode.displyaRange.z`     | `String` | Total gcode height along the Z axis                      |
-
-## File list
-
-The file list scene layout is not configurable, since it is dynamically generated. However, the buttons used in this scene can have their appearance customized.
-
-It is recommended that configuration of these buttons be limited background color and image.
-
-| Key                      | Description                                                           |
-|--------------------------|-----------------------------------------------------------------------|
-| `fileListFile`           | GCode file button                                                     |
-| `fileListFolder`         | Subfolder button                                                      |
-| `fileListPreviousFolder` | "Up a directory" button                                               |
-| `fileListDownArrow`      | Down arrow for scrolling when the file list overflows the grid layout |
-| `fileListUpArrow`        | Up arrow for scrolling when the file list overflows the grid layout   |
-| `sortScene`              | Button that links to a scene where file sort options can be selected  |
