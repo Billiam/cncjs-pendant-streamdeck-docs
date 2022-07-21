@@ -5,17 +5,11 @@
   "author": "Billiam <billiamthesecond@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "precommit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.md": [
-      "prettier --parser markdown --write",
-      "git add"
-    ]
+    "lint:markdown": "markdownlint 'content/**/*.md'"
   },
   "dependencies": {
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
+    "markdownlint-cli": "^0.32.0",
     "prettier": "^2.7.1"
   }
 }
