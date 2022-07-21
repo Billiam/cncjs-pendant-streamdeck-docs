@@ -1,4 +1,4 @@
-baseURL = "https://billiam.github.io/cncjs-pendant-streamdeck"
+baseURL = "https://billiam.github.io/cncjs-pendant-streamdeck/"
 languageCode = "en-us"
 title = "CNCjs Pendant Stream Deck"
 theme = "whisper"
