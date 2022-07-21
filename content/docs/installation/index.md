@@ -12,6 +12,7 @@ summary: Web and Stream Deck installation instructions
 2. Rename `config.example.json` to `config.json`
 3. Update the `config.json` file with your connection information in the [`cncjs`]({{< ref "configure#cncjs" >}}) section.
 4. Edit your `~/.cncrc` file, adding a mount point for this pendant
+
     ```json
     "mountPoints": [
       {
@@ -20,6 +21,7 @@ summary: Web and Stream Deck installation instructions
       }
     ]
     ```
+
 5. Restart CNCjs
 
 ## Stream Deck
@@ -29,13 +31,13 @@ You can skip the `.cncrc` step if you do not need the web interface.
 
 ### Linux
 
-_Instructions borrowed from https://github.com/julusian/node-elgato-stream-deck_
+Instructions borrowed from <https://github.com/julusian/node-elgato-stream-deck>
 
 On linux, the udev subsystem blocks access to the Stream Deck without some special configuration.
 Save the following to `/etc/udev/rules.d/50-elgato.rules` and reload the rules with
 `sudo udevadm control --reload-rules`
 
-```
+```txt
 SUBSYSTEM=="input", GROUP="input", MODE="0666"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0060", MODE:="666", GROUP="plugdev"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0063", MODE:="666", GROUP="plugdev"
@@ -55,7 +57,7 @@ Unplug and replug the device after reloading rules if necessary.
 
 Install dependencies for the canvas and Stream Deck libraries:
 
-```
+```sh
 apt-get install libusb-1.0-0-dev libudev-dev libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
@@ -97,6 +99,6 @@ reason.
 
 You can install it with:
 
-```
+```sh
 npm install -g pureimage @julusian/jpeg-turbo
 ```

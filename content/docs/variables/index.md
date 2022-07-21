@@ -8,12 +8,12 @@ summary: Reference for condition and template variables
 
 ## Conditions
 
-You may want to conditionally hide buttons, or visibly disable them, based on the current application state: Whether a job
-is currently running, whether the pendant is running in a web browser or a Stream Deck, whether gcode has been loaded,
-and so on.
+You may want to conditionally hide buttons, or visibly disable them, based on the current application state: Whether a
+job is currently running, whether the pendant is running in a web browser or a Stream Deck, whether gcode has been
+loaded, and so on.
 
-The `disabled` and `if` properties of a [button's]({{< ref "configure#buttonsunique-button-name" >}}) configuration are strings which are
-evaluated with a limited set of javascript.
+The `disabled` and `if` properties of a [button's]({{< ref "configure#buttonsunique-button-name" >}}) configuration are
+strings which are evaluated with a limited set of javascript.
 
 Math, ternary, numeric comparison and logical operators are allowed, but methods may not be executed.
 
@@ -24,7 +24,7 @@ shown for `if` properties, or disabled for `disabled` properties.
 Conditions which evaluate to a [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) value will be
 hidden for `if` properties, or enabled for `disabled` properties.
 
-**example**
+{{< example >}}
 
 ```json
 {
@@ -42,14 +42,14 @@ hidden for `if` properties, or enabled for `disabled` properties.
 
 ## Templates
 
-A [button's]({{< ref "configure#buttonsunique-button-name" >}}) `text` configuration value can be used to display a plain text string, but it can also act as a simple text
-_template_, containing and displaying application state information, which will be updated and re-rendered whenever any
-of the referenced state changes.
+A [button's]({{< ref "configure#buttonsunique-button-name" >}}) `text` configuration value can be used to display a
+plain text string, but it can also act as a simple text _template_, containing and displaying application state
+information, which will be updated and re-rendered whenever any of the referenced state changes.
 
 A text template is a string containing `{{ code }}`. Code within these braces will be evaluated with the same rules as
 [conditions](#conditions).
 
-**example**
+{{< example >}}
 
 ```json
 {

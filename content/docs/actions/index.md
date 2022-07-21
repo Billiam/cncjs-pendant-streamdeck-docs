@@ -16,7 +16,6 @@ Button arguments are always an array of strings, like:
 }
 ```
 
-
 ## Navigation actions
 
 There are several different actions used for navigating between scenes. The difference between these is what happens
@@ -24,13 +23,14 @@ when navigating back with [`backScene`]({{< ref "#backscene" >}}).
 
 ### `navigate`
 
-Change to the selected scene. [`backScene`]({{< ref "#backscene" >}}) will return to the previous scene where the navigation was triggered.
+Change to the selected scene. [`backScene`]({{< ref "#backscene" >}}) will return to the previous scene where the
+navigation was triggered.
 
 | Argument | Description             |
 |----------|-------------------------|
 | scene id | The scene to change to  |
 
-**example**
+{{< example >}}
 
 ```json
 {
@@ -46,7 +46,8 @@ Change to the selected scene. [`backScene`]({{< ref "#backscene" >}}) will retur
 
 ### `setScene`
 
-Change to the selected scene, clearing all back button history. This can be used to return "home" without allowing a `backScene` action afterward
+Change to the selected scene, clearing all back button history. This can be used to return "home" without allowing a
+[`backScene`](#backscene) action afterward
 
 | Argument | Description             |
 |----------|-------------------------|
@@ -54,7 +55,8 @@ Change to the selected scene, clearing all back button history. This can be used
 
 ### `swapScene`
 
-Replace the current scene with the selected scene. `backScene` will return to the scene _before_ the scene where the action was triggered. This can be used to apparently change several button states at once invisibly.
+Replace the current scene with the selected scene. `backScene` will return to the scene _before_ the scene where the
+action was triggered. This can be used to apparently change several button states at once invisibly.
 
 | Argument | Description             |
 |----------|-------------------------|
@@ -79,14 +81,15 @@ Jog in the given direction, based on [`jogDistance`](#jogdistance)
 
 Start smooth jogging in the given direction
 
-Based on [`jogSpeed`](#jogspeed) and the [`machine.axisSpeeds`]({{< ref "configure#machine" >}}) config. Multiple jog directions may be active at the same time.
+Based on [`jogSpeed`](#jogspeed) and the [`machine.axisSpeeds`]({{< ref "configure#machine" >}}) config. Multiple jog
+directions may be active at the same time.
 
 | Argument | Description                                           |
 |----------|-------------------------------------------------------|
 | sign     | The direction of motion. One of `-` or `+`            |
 | axis     | The axis to move, one of `x`, `y`, `z`, `a`, `b`, `c` |
 
-**example**
+{{< example >}}
 
 ```json
 {
@@ -167,7 +170,7 @@ Change the spindle speed override based on the [spindle interval](#togglespindle
 
 ### `toggleSpindleInterval`
 
-Toggle how much the spindle speed is changed by the [spindle action](#spinde), either 1% or 10%.
+Toggle how much the spindle speed is changed by the [spindle action](#spindle), either 1% or 10%.
 
 ### `resetSpindle`
 
@@ -181,14 +184,14 @@ Change the rapid speed override
 |----------|-------------------------------------------------|
 | speed    | The new rapid speed. One of [`25`, `50`, `100`] |
 
-
 ## User flag actions
 
-User flags are arbitrary, temporary variables that can be displayed as [dynamic text]({{< ref "variables#templates" >}}) in buttons, or used as
-[conditions]({{< ref "variables#conditions" >}}) for changing a button's visibility or enabled/disabled status. They can be set, removed, or
-toggled.
+User flags are arbitrary, temporary variables that can be displayed as [dynamic text]({{< ref "variables#templates" >}})
+in buttons, or used as [conditions]({{< ref "variables#conditions" >}}) for changing a button's visibility or
+enabled/disabled status. They can be set, removed, or toggled.
 
-These variables are not persisted, and will be reset when the page is reloaded, or when the Stream Deck process is restarted.
+These variables are not persisted, and will be reset when the page is reloaded, or when the Stream Deck process is
+restarted.
 
 ### `setUserFlag`
 
@@ -207,7 +210,7 @@ Remove an existing user flag
 |----------|------------------------------|
 | key      | The user flag name to remove |
 
-### `deleteUserFlag`
+### `toggleUserFlag`
 
 Toggle a user flag.
 
@@ -261,9 +264,10 @@ When an argument is given as a percentage (ex: `"25%"`), the position will be ca
 | B position | B axis position to move to |
 | C position | C axis position to move to |
 
-**example**
+{{< example >}}
 
-In the below example, the machine will be moved to 10% of the maximum Y range, 30 Z, and 50% of the maximum C axis range.
+In the below example, the machine will be moved to 10% of the maximum Y range, 30 Z, and 50% of the maximum C axis
+range.
 
 ```json
 {
@@ -299,12 +303,11 @@ selected value
 |----------|-------------------------------------------------------|
 | axis     | The axis to move, one of `x`, `y`, `z`, `a`, `b`, `c` |
 
-
 ## Gcode actions
 
 ### `refreshWatchFolder`
 
-Refresh the cncjs watch folder and open the [file list](#filelist)
+Refresh the cncjs watch folder and open the [file list]({{< ref "configure#gcode-file-list" >}})
 
 ### `clearGcode`
 
@@ -328,7 +331,7 @@ like `[ymin]` and `[xmax]`. Macros which require these should not be used.
 | macro id   | The UUID of the macro to run. Can be found in cncjs's `.cncrc` file |
 | macro name | The name of the macro to run.                                       |
 
-**example**
+{{< example >}}
 
 ```json
 {
@@ -347,7 +350,8 @@ These actions relate to the current feed and run state
 
 ### `connect`
 
-If disconnected, `connect` will attempt to open the serial port using the [cncjs](#cncjs)` serial configuration.
+If disconnected, `connect` will attempt to open the serial port using the [cncjs]({{< ref "configure#cncjs" >}})`
+serial configuration.
 
 ### `run`
 
