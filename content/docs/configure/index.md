@@ -41,14 +41,14 @@ Used to configure connection to the cncjs server, and controller serial port
   }
 ```
 
-| Key                      | Type                                                               | Description                                                                                                               |
-|--------------------------|--------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| `accessTokenExpiration`  | {{< type "String" >}}, {{< type "Integer" >}}                      | Expiration time web token, in seconds or as a duration string. Default: `30d`. {{< badge "success" "Stream Deck only" >}} |
-| `baudRate`               | {{< type "Integer" >}}                                             | Serial connection baud rate                                                                                               |
-| `port`                   | {{< type "String" >}}                                              | Serial connection port                                                                                                    |
-| `controllerType`         | {{< type "Enum" >}}                                                | Controller type. Allowed: [`Grbl`]                                                                                        |
-| `socketAddress`          | {{< type "String" >}}                                              | URL for socket connection to cncjs. Usually `localhost`                                                                   |
-| `socketPort`             | {{< type "Integer" >}}                                             | Socket connection port for cncjs. Usually `80` or `8000`                                                                  |
+| Key                      | Type                                          | Description                                                                                                                   |
+|--------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| `accessTokenExpiration`  | {{< type "String" >}}, {{< type "Integer" >}} | Web token expiration duration, in seconds or as a duration string. Default: `30d`. {{< badge "success" "Stream Deck only" >}} |
+| `baudRate`               | {{< type "Integer" >}}                        | Serial connection baud rate                                                                                                   |
+| `port`                   | {{< type "String" >}}                         | Serial connection port                                                                                                        |
+| `controllerType`         | {{< type "Enum" >}}                           | Controller type. Allowed: [`Grbl`]                                                                                            |
+| `socketAddress`          | {{< type "String" >}}                         | URL for socket connection to cncjs. Usually `localhost`                                                                       |
+| `socketPort`             | {{< type "Integer" >}}                        | Socket connection port for cncjs. Usually `80` or `8000`                                                                      |
 
 ## `machine`
 
