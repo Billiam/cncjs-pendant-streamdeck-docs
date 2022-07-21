@@ -1,10 +1,10 @@
-baseURL = "www.example.com"
+baseURL = "https://billiam.github.io/cncjs-pendant-streamdeck"
 languageCode = "en-us"
-title = "Hugo Whisper Theme"
+title = "CNCjs Pendant Stream Deck"
 theme = "whisper"
 
 pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
+pygmentsCodefencesGuessSyntax = false
 pygmentsUseClasses = true
 
 [module]
@@ -30,23 +30,23 @@ summaryLength = 30
   google_analytics_id=""
   homepage_button_link = '/docs'
   homepage_button_text = 'Read The Docs'
-  homepage_intro = 'Whisper is a documentation theme built with Hugo. The design and functionality is intentionally minimal.'
+  homepage_intro = 'A CNCjs pendant for mobile web and the Elgato Stream Deck'
   homepage_image = '/images/web.gif'
 
   ## You can enable to add anchor links to header elements
   enable_anchor_link = true
 
   [params.homepage_meta_tags]
-    meta_description = "Hugo Whisper is a documentation theme built with Hugo."
-    meta_og_title = "Hugo Whisper Theme"
+    meta_description = "CNCjs pendant for mobile web and the Elgato Stream Deck"
+    meta_og_title = "CNCjs Pendant Stream Deck"
     meta_og_type = "website"
-    meta_og_url = "https://hugo-whisper.netlify.app"
-    meta_og_image = "https://raw.githubusercontent.com/JugglerX/hugo-whisper-theme/master/images/tn.png"
-    meta_og_description = "Hugo Whisper is a documentation theme built with Hugo."
+    meta_og_url = "https://billiam.github.io/cncjs-pendant-streamdeck"
+    meta_og_image = "https://billiam.github.io/cncjs-pendant-streamdeck/jog.png"
+    meta_og_description = "CNCjs pendant for mobile web and the Elgato Stream Deck"
     meta_twitter_card = "summary"
-    meta_twitter_site = "@zerostaticio"
-    meta_twitter_creator = "@zerostaticio"
+    meta_twitter_site = ""
+    meta_twitter_creator = "@billiporter"
 
   [params.logo]
-      mobile = "/images/logo-mobile.svg"
-      standard  = "/images/logo.svg"
+    mobile = ""
+    standard  = ""
