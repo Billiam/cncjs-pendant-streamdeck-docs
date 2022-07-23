@@ -1,0 +1,44 @@
+.cm-editor {
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  height: 500px;
+}
+.cm-scroller {
+  overflow: auto;
+}
+.cm-diagnosticText {
+  word-break: break-all;
+  max-width: 500px;
+}
+.cm-tooltip {
+  max-width: 500px;
+}
+.error-title {
+  font-size: 1.5rem;
+  &.error {
+    color: #be0d0d;
+  }
+  &.ok {
+    color: $primary;
+  }
+}
+#error_list {
+  //border: 1px solid #ddd;
+}
+.error-list {
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.error-item {
+  padding: 8px;
+  cursor: pointer;
+  color: #be0d0d;
+  word-break: break-word;
+  &.warning {
+    color: #b68b00;
+  }
+  &:hover {
+    background-color: #eee;
+  }
+}

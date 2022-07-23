@@ -26,6 +26,11 @@ summaryLength = 30
     url = "/docs/"
     weight = 2
 
+[[menu.main]]
+    name = "Validator"
+    url = "/validator/"
+    weight = 3
+
 [params]
   google_analytics_id=""
   homepage_button_link = 'docs'

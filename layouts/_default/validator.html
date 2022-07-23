@@ -1,0 +1,35 @@
+{{ define "header_css" }}{{ end }}
+{{ define "body_classes" }}page-default-single{{ end }}
+{{ define "header_classes" }}{{ end }}
+{{ define "footer_js" }}
+{{ $script := resources.Get "js/validator.js" | js.Build }}
+
+{{ if .Site.IsServer }}
+<script type="text/javascript" src="{{ $script.RelPermalink }}"></script>
+{{ else }}
+<script type="text/javascript" src="{{ ($script | minify | fingerprint).RelPermalink }}"></script>
+{{ end }}
+
+{{ end }}
+{{ define "main" }}
+<div class="container pt-2 pt-md-6 pb-3 pb-md-6">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="title">{{.Title}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      {{ .Content }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <div id="editor"></div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div id="error_list"></div>
+    </div>
+  </div>
+</div>
+{{ end }}
