@@ -13,6 +13,8 @@ is for reference, but it is _strongly_ recommended that you just start with the
 [default config](https://github.com/Billiam/cncjs-pendant-streamdeck/blob/main/src/public/config.example.json) and
 modify it as you go, rather than starting from scratch.
 
+You can use the [Config Validator]({{< ref "validator" >}}) to verify your configuration changes.
+
 The top level configuration object has the following keys:
 
 | Key                   | Type                  | Description                               |
