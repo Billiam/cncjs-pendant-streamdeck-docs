@@ -25,3 +25,80 @@ If the interface feels sluggish, there are some configuration changes which can 
 
 Additionally, the Stream Deck can be connected to a different machine than the one running cncjs, at the cost of some
 additional network latency.
+
+## Toggling button appearance
+
+If you want to change a button's appearance after it's been pressed, you have a few options:
+
+### Toggle button
+
+Here's an example of two buttons occupying the same space, with only one visible at a time. This gives the impression
+of having a button a different "on" and "off" state.
+
+Set the [`if`]({{< ref "variables#conditions" >}}) value for each button to something some mutually-exclusive
+condition, and use a nested array in place of a button id in the scene to display both buttons in the same
+location.
+
+```json
+{
+  "buttons": {
+    "button_1": {
+      "actions": [{
+        "action": "setRapids",
+        "arguments": ["25"]
+      }],
+      "if": "cnc.overrides.rapids === 25"
+    },
+    "button_2": {
+      "actions": [{
+        "action": "setRapids",
+        "arguments": ["50"]
+      }],
+      "if": "cnc.overrides.rapids === 50"
+    }
+  },
+  "scenes": {
+    "home": {
+      "buttons": [
+        ["back", ["button_1", "button_2"]]
+      ]
+    }
+  }
+}
+```
+
+### Radio button
+
+Here's an example of two buttons that could appear side by side, with only one active at once, and the other being
+grayed out, and non-interactive.
+
+Set the [`disabled`]({{< ref "variables#conditions" >}}) value for each button to something some mutually-exclusive
+condition.
+
+```json
+{
+  "buttons": {
+    "button_1": {
+      "actions": [{
+        "action": "setRapids",
+        "arguments": ["25"]
+      }],
+      "disabled": "cnc.overrides.rapids === 25"
+    },
+    "button_2": {
+      "actions": [{
+        "action": "setRapids",
+        "arguments": ["50"]
+      }],
+      "disabled": "cnc.overrides.rapids === 50"
+    }
+  },
+  "scenes": {
+    "home": {
+      "buttons": [
+        ["back", "button_1", "button_2"]
+      ]
+    }
+  }
+}
+```
