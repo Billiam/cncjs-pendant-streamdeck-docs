@@ -15,6 +15,13 @@ jobs:
           submodules: true
           fetch-depth: 0
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install packages
+        run: yarn install --immutable
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
