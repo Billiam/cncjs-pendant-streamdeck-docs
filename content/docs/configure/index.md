@@ -41,6 +41,7 @@ Used to configure connection to the cncjs server, and controller serial port
     "socketAddress": "localhost",
     "socketPort": 8000
   }
+}
 ```
 
 | Key                      | Type                                          | Description                                                                                                                   |

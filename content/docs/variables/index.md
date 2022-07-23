@@ -172,4 +172,4 @@ State related to the currently loaded gcode.
 | `gcode.displayRange`       | {{< type "Object" >}} | Preformatted dimension information from the loaded gcode |
 | `gcode.displayRange.x`     | {{< type "String" >}} | Total gcode width along the X axis                       |
 | `gcode.displayRange.y`     | {{< type "String" >}} | Total gcode depth along the Y axis                       |
-| `gcode.displyaRange.z`     | {{< type "String" >}} | Total gcode height along the Z axis                      |
+| `gcode.displayRange.z`     | {{< type "String" >}} | Total gcode height along the Z axis                      |
