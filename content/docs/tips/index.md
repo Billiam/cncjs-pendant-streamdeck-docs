@@ -33,7 +33,7 @@ If you want to change a button's appearance after it's been pressed, you have a 
 ### Toggle button
 
 Here's an example of two buttons occupying the same space, with only one visible at a time. This gives the impression
-of having a button a different "on" and "off" state.
+of having a button with different "on" and "off" state.
 
 Set the [`if`]({{< ref "variables#conditions" >}}) value for each button to something some mutually-exclusive
 condition, and use a nested array in place of a button id in the scene to display both buttons in the same
