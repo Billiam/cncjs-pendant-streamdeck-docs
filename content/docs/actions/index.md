@@ -326,6 +326,11 @@ Run arbitrary gcode
 Run a cncjs macro. Macros run from this pendant do not currently have access to some cncjs variables,
 like `[ymin]` and `[xmax]`. Macros which require these should not be used.
 
+Macros can either be identified by their UUID using the first argument, or by their exact name, using the second
+argument.
+
+If the first argument (the UUID) is not provided, the second one (the name) must be instead, and vice-versa.
+
 | Argument   | Description                                                         |
 |------------|---------------------------------------------------------------------|
 | macro id   | The UUID of the macro to run. Can be found in cncjs's `.cncrc` file |
