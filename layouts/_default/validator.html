@@ -7,7 +7,7 @@
 {{ if .Site.IsServer }}
 <script type="text/javascript" src="{{ $script.RelPermalink }}"></script>
 {{ else }}
-<script type="text/javascript" src="{{ ($script | minify | fingerprint).RelPermalink }}"></script>
+<script type="text/javascript" src="{{ ($script | js.Build (dict "minify" true)  | fingerprint).RelPermalink }}"></script>
 {{ end }}
 
 {{ end }}
