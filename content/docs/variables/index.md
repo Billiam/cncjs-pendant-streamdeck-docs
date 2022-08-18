@@ -80,7 +80,6 @@ State related to the current pendant user interface
 |-----------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `ui.brightness`       | {{< type "Integer" >}} | The current brightness value. [`10` - `100`] {{< badge "success" "Stream Deck only" >}}                                                                  |
 | `ui.feedrateInterval` | {{< type "Integer" >}} | The amount that feedrate will be increased or decreased by when modified                                                                                 |
-| `ui.gcodeLimit`       | {{< type "Integer" >}} | Set a hard limit on the number of lines of gcode that will be processed. Affects rendering and boundary data. {{< badge "success" "Stream Deck only" >}} |
 | `ui.spindleInterval`  | {{< type "Integer" >}} | The amount that spindle speed will be increased or decreased by when modified                                                                            |
 | `ui.userFlags`        | {{< type "Object" >}}  | Object containing [user flag data]({{< ref "actions#user-flag-actions" >}}). Ex: `ui.userFlags.MyValue`                                                  |
 | `ui.input.value`      | {{< type "String" >}}  | Numeric string representing the current value for the numpad input scene                                                                                 |
@@ -88,7 +87,6 @@ State related to the current pendant user interface
 | `ui.input.type`       | {{< type "String" >}}  | A label for the type of input being set by the numpad input scene                                                                                        |
 | `ui.web`              | {{< type "Boolean" >}} | Whether the pendant is being used in a web browser or on a Stream Deck device                                                                            |
 | `ui.sceneName`        | {{< type "String" >}}  | The name of the currently active scene                                                                                                                   |
-| `ui.throttle`         | {{< type "Integer" >}} | Redraw each button at most once every `throttle` milliseconds. Default: `0`. {{< badge "success" "Stream Deck only" >}}                                  |
 
 ### cnc
 

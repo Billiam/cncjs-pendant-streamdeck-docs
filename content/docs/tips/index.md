@@ -18,7 +18,8 @@ If the interface feels sluggish, there are some configuration changes which can 
   disabled state.
 * Limit button rendering complexity: A single, flat image is faster to render than compositing a
   background, overlay image and SVG text (but less convenient).
-* Throttle button updates. `ui.throttle: 100` will ensure that at most 10 updates per second ale allowed for a single button.
+* Throttle button updates. `ui.throttle: 100` will ensure that at most 10 updates per second are allowed for a single 
+button.
 * For very large gcode files, the benefit of displaying accurate gcode dimensions or rendering the gcode may not be worth
   the cost of parsing the gcode. You can limit the number of gcode lines which will be processed with the `ui.gcodeLimit`
   setting.

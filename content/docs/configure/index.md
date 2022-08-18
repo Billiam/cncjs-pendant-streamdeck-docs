@@ -128,20 +128,22 @@ Configuration for global interface settings.
 }
 ```
 
-| Key                             | Type                                          | Description                                                                                  |
-|---------------------------------|-----------------------------------------------|----------------------------------------------------------------------------------------------|
-| `bgColor`                       | {{< type "Integer" >}}, {{< type "String" >}} | Default background color for buttons. May be a color string or [palette](#uipalette) index   |
-| `brightness`                    | {{< type "Integer" >}}                        | Default brightness. [`10` – `100`] {{< badge "success" "Stream Deck only" >}}                |
-| `columns`                       | {{< type "Integer" >}}                        | Number of columns to display                                                                 |
-| `rows`                          | {{< type "Integer" >}}                        | Number of rows to display                                                                    |
-| `font`                          | {{< type "String" >}}                         | Font to use for text display. Default: `monospace`                                           |
-| `fontSize`                      | {{< type "String" >}}                         | Font size to use for text display                                                            |
-| `lineHeight`                    | {{< type "String" >}}                         | Line height for text display as a percentage of font size. Default: `1.1`                    |
-| [`gcodeColors`](#uigcodecolors) | [{{< type "Object" >}}](#uigcodecolors)       | Line and curve colors for gcode rendering.                                                   |
-| `palette`                       | {{< type "String[]" >}}                       | Array of colors that buttons and other color settings may refer to by index                  |
-| `progressColor`                 | {{< type "Integer" >}}, {{< type "String" >}} | Color to use for button hold indicator. May be a color string or [palette](#uipalette) index |
-| `textColor`                     | {{< type "Integer" >}}, {{< type "String" >}} | Color to use for button text. May be a color string or [palette](#uipalette) index           |
-| `timeout`                       | {{< type "Integer" >}}                        | Duration, in seconds, before blanking display. {{< badge "success" "Stream Deck only" >}}    |
+| Key                             | Type                                          | Description                                                                                                                                              |
+|---------------------------------|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `bgColor`                       | {{< type "Integer" >}}, {{< type "String" >}} | Default background color for buttons. May be a color string or [palette](#uipalette) index                                                               |
+| `brightness`                    | {{< type "Integer" >}}                        | Default brightness. [`10` – `100`] {{< badge "success" "Stream Deck only" >}}                                                                            |
+| `columns`                       | {{< type "Integer" >}}                        | Number of columns to display                                                                                                                             |
+| `rows`                          | {{< type "Integer" >}}                        | Number of rows to display                                                                                                                                |
+| `font`                          | {{< type "String" >}}                         | Font to use for text display. Default: `monospace`                                                                                                       |
+| `fontSize`                      | {{< type "String" >}}                         | Font size to use for text display                                                                                                                        |
+| `lineHeight`                    | {{< type "String" >}}                         | Line height for text display as a percentage of font size. Default: `1.1`                                                                                |
+| [`gcodeColors`](#uigcodecolors) | [{{< type "Object" >}}](#uigcodecolors)       | Line and curve colors for gcode rendering.                                                                                                               |
+| `gcodeLimit`                    | {{< type "Integer" >}}                        | Set a hard limit on the number of lines of gcode that will be processed. Affects rendering and boundary data. {{< badge "success" "Stream Deck only" >}} |
+| `palette`                       | {{< type "String[]" >}}                       | Array of colors that buttons and other color settings may refer to by index                                                                              |
+| `progressColor`                 | {{< type "Integer" >}}, {{< type "String" >}} | Color to use for button hold indicator. May be a color string or [palette](#uipalette) index                                                             |
+| `textColor`                     | {{< type "Integer" >}}, {{< type "String" >}} | Color to use for button text. May be a color string or [palette](#uipalette) index                                                                       |
+| `throttle`                      | {{< type "Integer" >}}                        | Redraw each button at most once every `throttle` milliseconds. Default: `0`. {{< badge "success" "Stream Deck only" >}}                                  |
+| `timeout`                       | {{< type "Integer" >}}                        | Duration, in seconds, before blanking display. {{< badge "success" "Stream Deck only" >}}                                                                |
 
 ### `ui/gcodeColors`
 
