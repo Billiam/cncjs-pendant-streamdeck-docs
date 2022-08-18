@@ -17,13 +17,14 @@ You can use the [Config Validator]({{< ref "validator" >}}) to verify your confi
 
 The top level configuration object has the following keys:
 
-| Key                   | Type                  | Description                               |
-|-----------------------|-----------------------|-------------------------------------------|
-| [`cncjs`](#cncjs)     | {{< type "Object" >}} | Connection information                    |
-| [`ui`](#ui)           | {{< type "Object" >}} | Global grid size and default colors       |
-| [`buttons`](#buttons) | {{< type "Object" >}} | Button display and actions                |
-| [`scenes`](#scenes)   | {{< type "Object" >}} | Button layout on individual pages         |
-| [`machine`](#machine) | {{< type "Object" >}} | Machine axes and per-axis speed modifiers |
+| Key                             | Type                   | Description                               |
+|---------------------------------|------------------------|-------------------------------------------|
+| [`cncjs`](#cncjs)               | {{< type "Object" >}}  | Connection information                    |
+| [`ui`](#ui)                     | {{< type "Object" >}}  | Global grid size and default colors       |
+| [`streamdeckUi`](#streamdeckui) | {{< type "Object" >}}  | Stream Deck-only overrides to `ui`        |  
+| [`buttons`](#buttons)           | {{< type "Object" >}}  | Button display and actions                |
+| [`scenes`](#scenes)             | {{< type "Object" >}}  | Button layout on individual pages         |
+| [`machine`](#machine)           | {{< type "Object" >}}  | Machine axes and per-axis speed modifiers |
 
 ## `cncjs`
 
@@ -275,6 +276,15 @@ It is recommended that configuration of these buttons be limited background colo
 | `fileListDownArrow`      | Down arrow for scrolling when the file list overflows the grid layout |
 | `fileListUpArrow`        | Up arrow for scrolling when the file list overflows the grid layout   |
 | `sortScene`              | Button that links to a scene where file sort options can be selected  |
+
+## `streamdeckUi`
+
+This section has the exact same structure as the [`ui`](#ui) configuration. Properties in `streamdeckUi`
+will override those of the `ui` section, when using a Stream Deck, and are ignored in the web version.
+
+This allows the use of smaller fonts, brighter colors, or more aggressive throttling/rendering limits.
+
+All properties are optional.
 
 ## `buttons`
 
