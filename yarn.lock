@@ -133,10 +133,10 @@ chalk@^4.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-cncjs-pendant-streamdeck-validator@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/cncjs-pendant-streamdeck-validator/-/cncjs-pendant-streamdeck-validator-1.1.0.tgz#884e589cd583183ece60fe8d9bcd3bb791a72f07"
-  integrity sha512-dYVcP+su9XCsE1dT8UfG28dXuscTurFMLvyaI20k2mAXTEHBUz+F7kDrhbKFXQgM2+D/a/UwDIECfXryp7eyCA==
+cncjs-pendant-streamdeck-validator@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/cncjs-pendant-streamdeck-validator/-/cncjs-pendant-streamdeck-validator-1.2.0.tgz#1bf6fbc45e86cd3d733891b022449107b7bcf7db"
+  integrity sha512-EQiwgPCGO8wdfu2OYBsgdLYSOMPUiNZ7gE+ABZB11pQVafYijUHpyxpriq0k9CcOaO4OoXAXI2KivyU7qy4rbg==
   dependencies:
     chalk "^4.0.0"
     commander "^9.4.0"

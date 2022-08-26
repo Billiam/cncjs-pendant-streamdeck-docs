@@ -9,7 +9,7 @@
   "dependencies": {
     "@codemirror/lang-json": "^6.0.0",
     "@codemirror/lint": "^6.0.0",
-    "cncjs-pendant-streamdeck-validator": "^1.1.0",
+    "cncjs-pendant-streamdeck-validator": "^1.2.0",
     "codemirror": "^6.0.1",
     "husky": "^8.0.1",
     "json-source-map": "^0.6.1",

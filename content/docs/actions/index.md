@@ -326,15 +326,15 @@ Run arbitrary gcode
 Run a cncjs macro. Macros run from this pendant do not currently have access to some cncjs variables,
 like `[ymin]` and `[xmax]`. Macros which require these should not be used.
 
-Macros can either be identified by their UUID using the first argument, or by their exact name, using the second
-argument.
+Macros can either be identified by their UUID using the first argument, or (less efficiently) by their exact name, using
+the second argument.
 
 If the first argument (the UUID) is not provided, the second one (the name) must be instead, and vice-versa.
 
-| Argument   | Description                                                         |
-|------------|---------------------------------------------------------------------|
-| macro id   | The UUID of the macro to run. Can be found in cncjs's `.cncrc` file |
-| macro name | The name of the macro to run.                                       |
+| Argument   | Description                   |
+|------------|-------------------------------|
+| macro id   | The UUID of the macro to run. |
+| macro name | The name of the macro to run. |
 
 {{< example >}}
 
@@ -348,6 +348,34 @@ If the first argument (the UUID) is not provided, the second one (the name) must
   ]
 }
 ```
+
+### `command`
+
+Run a cncjs custom command. Commands are defined in the cncjs interface in Settings > Commands.
+
+Commands can either be identified by their UUID using the first argument, or (less efficiently) by their exact title,
+using the second argument. The UUID can be found in your `.cncrc` config file.
+
+If the first argument (the UUID) is not provided, the second one (the title) must be instead, and vice-versa.
+
+| Argument      | Description                     |
+|---------------|---------------------------------|
+| command id    | The UUID of the command to run  |
+| command title | The title of the command to run |
+
+{{< example >}}
+
+```json
+{
+  "actions": [
+    {
+      "action": "command",
+      "arguments": [null, "My Restart Command"]
+    }
+  ]
+}
+```
+
 
 ## CNC state actions
 
