@@ -349,6 +349,8 @@ If the first argument (the UUID) is not provided, the second one (the name) must
 }
 ```
 
+## Utility actions
+
 ### `command`
 
 Run a cncjs custom command. Commands are defined in the cncjs interface in Settings > Commands.
@@ -375,7 +377,6 @@ If the first argument (the UUID) is not provided, the second one (the title) mus
   ]
 }
 ```
-
 
 ## CNC state actions
 
