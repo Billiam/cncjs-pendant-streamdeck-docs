@@ -21,7 +21,7 @@ The top level configuration object has the following keys:
 |---------------------------------|------------------------|-------------------------------------------|
 | [`cncjs`](#cncjs)               | {{< type "Object" >}}  | Connection information                    |
 | [`ui`](#ui)                     | {{< type "Object" >}}  | Global grid size and default colors       |
-| [`streamdeckUi`](#streamdeckui) | {{< type "Object" >}}  | Stream Deck-only overrides to `ui`        |  
+| [`streamdeckUi`](#streamdeckui) | {{< type "Object" >}}  | Stream Deck-only overrides to `ui`        |
 | [`buttons`](#buttons)           | {{< type "Object" >}}  | Button display and actions                |
 | [`scenes`](#scenes)             | {{< type "Object" >}}  | Button layout on individual pages         |
 | [`machine`](#machine)           | {{< type "Object" >}}  | Machine axes and per-axis speed modifiers |
@@ -120,6 +120,7 @@ Configuration for global interface settings.
       "#02535e",
       "#1F2D3A"
     ],
+    "pageColor": 0,
     "progressColor": 3,
     "rows": 3,
     "textColor": "#fff",
@@ -140,7 +141,8 @@ Configuration for global interface settings.
 | `lineHeight`                    | {{< type "String" >}}                         | Line height for text display as a percentage of font size. Default: `1.1`                                                                                |
 | [`gcodeColors`](#uigcodecolors) | [{{< type "Object" >}}](#uigcodecolors)       | Line and curve colors for gcode rendering.                                                                                                               |
 | `gcodeLimit`                    | {{< type "Integer" >}}                        | Set a hard limit on the number of lines of gcode that will be processed. Affects rendering and boundary data. {{< badge "success" "Stream Deck only" >}} |
-| `palette`                       | {{< type "String[]" >}}                       | Array of colors that buttons and other color settings may refer to by index                                                                              |
+| `pageColor`                     | {{< type "Integer" >}}, {{< type "String" >}} | Color to use for page background {{< badge "primary" "web only" >}}                                                                                      |
+| [`palette`](#uipalette)         | [{{< type "String[]" >}}](#uipalette)         | Array of colors that buttons and other color settings may refer to by index                                                                              |
 | `progressColor`                 | {{< type "Integer" >}}, {{< type "String" >}} | Color to use for button hold indicator. May be a color string or [palette](#uipalette) index                                                             |
 | `textColor`                     | {{< type "Integer" >}}, {{< type "String" >}} | Color to use for button text. May be a color string or [palette](#uipalette) index                                                                       |
 | `throttle`                      | {{< type "Integer" >}}                        | Redraw each button at most once every `throttle` milliseconds. Default: `0`. {{< badge "success" "Stream Deck only" >}}                                  |
