@@ -137,7 +137,7 @@ Configuration for global interface settings.
 | `columns`                       | {{< type "Integer" >}}                        | Number of columns to display                                                                                                                             |
 | `rows`                          | {{< type "Integer" >}}                        | Number of rows to display                                                                                                                                |
 | `font`                          | {{< type "String" >}}                         | Font to use for text display. Default: `monospace`                                                                                                       |
-| `fontSize`                      | {{< type "String" >}}                         | Font size to use for text display                                                                                                                        |
+| `fontSize`                      | {{< type "Number" >}}                         | Font size to use for text display                                                                                                                        |
 | `lineHeight`                    | {{< type "String" >}}                         | Line height for text display as a percentage of font size. Default: `1.1`                                                                                |
 | [`gcodeColors`](#uigcodecolors) | [{{< type "Object" >}}](#uigcodecolors)       | Line and curve colors for gcode rendering.                                                                                                               |
 | `gcodeLimit`                    | {{< type "Integer" >}}                        | Set a hard limit on the number of lines of gcode that will be processed. Affects rendering and boundary data. {{< badge "success" "Stream Deck only" >}} |
@@ -322,18 +322,19 @@ layout.
 
 ### `buttons/<unique button name>`
 
-| Key                          | Type                                          | Description                                                                                                                                             |
-|------------------------------|-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`actions`](#buttonactions)  | [{{< type "Object[]" >}}](#buttonactions)     | Actions to take when button is pressed, released or held                                                                                                |
-| `bgColor`                    | {{< type "Integer" >}}, {{< type "String" >}} | Background color. May be a color string or [palette](#uipalette) index                                                                                  |
-| `columns`                    | {{< type "Integer" >}}                        | Number of columns the button will occupy. Default: `1`                                                                                                  |
-| `rows`                       | {{< type "Integer" >}}                        | Number of rows the button will occupy. Default: `1`                                                                                                     |
-| `type`                       | {{< type "Enum" >}}                           | Changes the button's behavior and appearance. Allowed: [`gcodePreview`]                                                                                 |
-| `icon`                       | {{< type "String" >}}                         | Image path to display, relative to `public` directory. Image will be shown over background, and behind text.                                            |
-| `if`                         | {{< type "String" >}}                         | Condition used for hiding and showing the button. See: [conditions]({{< ref "variables#conditions" >}})                                                 |
-| `disabled`                   | {{< type "String" >}}                         | Condition used for disabling and enabling the button. See: [conditions]({{< ref "variables#conditions" >}})                                             |
-| `text`                       | {{< type "String" >}}                         | Text or text template that to be displayed on the button. See: [templates]({{< ref "variables#templates" >}})                                           |
-| `textAlignment`              | {{< type "Enum" >}}                           | Text position within the button. Allowed: [`top left`, `top center`, `top right`, `left`,`center`,`right`,`bottom left`,`bottom center`,`bottom right`] |
+| Key                         | Type                                          | Description                                                                                                                                             |
+|-----------------------------|-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`actions`](#buttonactions) | [{{< type "Object[]" >}}](#buttonactions)     | Actions to take when button is pressed, released or held                                                                                                |
+| `bgColor`                   | {{< type "Integer" >}}, {{< type "String" >}} | Background color. May be a color string or [palette](#uipalette) index                                                                                  |
+| `columns`                   | {{< type "Integer" >}}                        | Number of columns the button will occupy. Default: `1`                                                                                                  |
+| `rows`                      | {{< type "Integer" >}}                        | Number of rows the button will occupy. Default: `1`                                                                                                     |
+| `type`                      | {{< type "Enum" >}}                           | Changes the button's behavior and appearance. Allowed: [`gcodePreview`]                                                                                 |
+| `icon`                      | {{< type "String" >}}                         | Image path to display, relative to `public` directory. Image will be shown over background, and behind text.                                            |
+| `if`                        | {{< type "String" >}}                         | Condition used for hiding and showing the button. See: [conditions]({{< ref "variables#conditions" >}})                                                 |
+| `disabled`                  | {{< type "String" >}}                         | Condition used for disabling and enabling the button. See: [conditions]({{< ref "variables#conditions" >}})                                             |
+| `text`                      | {{< type "String" >}}                         | Text or text template that to be displayed on the button. See: [templates]({{< ref "variables#templates" >}})                                           |
+| `textAlignment`             | {{< type "Enum" >}}                           | Text position within the button. Allowed: [`top left`, `top center`, `top right`, `left`,`center`,`right`,`bottom left`,`bottom center`,`bottom right`] |
+| `textSize`                  | {{< type "Number" >}}                         | Font size modifier. Default: `1`                                                                                                                        |
 
 ### `button/actions`
 
