@@ -52,7 +52,8 @@ Used to configure connection to the cncjs server, and controller serial port
 | `port`                   | {{< type "String" >}}                         | Serial connection port                                                                                                        |
 | `controllerType`         | {{< type "Enum" >}}                           | Controller type. Allowed: [`Grbl`]                                                                                            |
 | `socketAddress`          | {{< type "String" >}}                         | URL for socket connection to cncjs. Usually `localhost`                                                                       |
-| `socketPort`             | {{< type "Integer" >}}                        | Socket connection port for cncjs. Usually `80` or `8000`                                                                      |
+| `socketPort`             | {{< type "Integer" >}}                        | Socket connection port for cncjs. Usually `80` or `8000`
+| `secure`                 | {{< type "Boolean" >}}                        | If enabled, socket connections will be made over wss, and API requests over https. Default `false`
 
 ## `machine`
 

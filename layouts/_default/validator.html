@@ -4,7 +4,7 @@
 {{ define "footer_js" }}
 {{ $script := resources.Get "js/validator.js" | js.Build }}
 
-{{ if .Site.IsServer }}
+{{ if hugo.IsServer }}
 <script type="text/javascript" src="{{ $script.RelPermalink }}"></script>
 {{ else }}
 <script type="text/javascript" src="{{ ($script | js.Build (dict "minify" true)  | fingerprint).RelPermalink }}"></script>
