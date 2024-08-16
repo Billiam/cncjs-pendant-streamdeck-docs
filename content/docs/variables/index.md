@@ -131,6 +131,8 @@ State related to the machine or cncjs's
 | `cnc.mpos.a`             | {{< type "String" >}}  | The current A machine position                                                                                                                     |
 | `cnc.mpos.b`             | {{< type "String" >}}  | The current B machine position                                                                                                                     |
 | `cnc.mpos.c`             | {{< type "String" >}}  | The current C machine position                                                                                                                     |
+| `cnc.feedRate`           | {{< type "Number" >}}  | The current feed rate. Does not include units                                                                                                      |
+| `cnc.spindleRpm`         | {{< type "Number" >}}  | The current spindle RPM as in integer                                                                                                              |
 | `cnc.displayMpos`        | {{< type "String" >}}  | Preformatted multiline string of all [enabled axes]({{< ref "configure#machine" >}}) and their machine positions with string padding for alignment |
 | `cnc.modal`              | {{< type "Object" >}}  | Grbl modal state information                                                                                                                       |
 | `cnc.modal.distance`     | {{< type "String" >}}  | Current motion mode. Either `G90` or `G91`                                                                                                         |
