@@ -249,9 +249,55 @@ Save the current value and return to the previous scene
 
 ## Positioning actions
 
+### `absoluteMachinePosition`
+
+Move to a specific position, relative to the machine zero position.
+
+Accepts a single string which will be used as arguments to a `G53 G0` move.
+
+| Argument    | Description  |
+|-------------|--------------|
+| position    | New position |
+
+{{< example >}}
+
+```json
+{
+  "actions": [
+    {
+      "action": "absoluteMachinePosition",
+      "arguments": ["X-100 Y-20"]
+    }
+  ]
+}
+```
+
+### `absoluteWorkPosition`
+
+Move to a specific position, relative to the current work zero position.
+
+Accepts a single string which will be used as arguments to a `G0` move.
+
+| Argument    | Description  |
+|-------------|--------------|
+| position    | New position |
+
+{{< example >}}
+
+```json
+{
+  "actions": [
+    {
+      "action": "absoluteWorkPosition",
+      "arguments": ["X10 Y20 A5"]
+    }
+  ]
+}
+```
+
 ### `goto`
 
-Move to a specific absolute machine position one one or more axes.
+Move to a specific absolute machine position on one or more axes.
 
 When an argument is given as a percentage (ex: `"25%"`), the position will be calculated based on machine dimensions.
 
@@ -348,6 +394,14 @@ If the first argument (the UUID) is not provided, the second one (the name) must
   ]
 }
 ```
+
+### `outline`
+
+Parses the currently loaded gcode and jogs around its perimeter.
+
+**Limitations**: gcode parsing and perimeter building is not 100% accurate. Some types of arcs (like those on 3 planes),
+may not be processed, resulting in straight line paths between their outermost points. All other arcs will be split into
+small straight line movements which can be misleading for small curves.
 
 ## Utility actions
 
