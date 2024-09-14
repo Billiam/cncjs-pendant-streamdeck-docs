@@ -13,14 +13,14 @@ image and SVG compositing which can be expensive on low end systems.
 
 If the interface feels sluggish, there are some configuration changes which can help:
 
-* Limit the number of visible buttons. Ensure that buttons which are covered by other buttons are set to `show: false`
-* Limit the number of visible buttons which require frequent updates, including updates to their text content or
+- Limit the number of visible buttons. Ensure that buttons which are covered by other buttons are set to `show: false`
+- Limit the number of visible buttons which require frequent updates, including updates to their text content or
   disabled state.
-* Limit button rendering complexity: A single, flat image is faster to render than compositing a
+- Limit button rendering complexity: A single, flat image is faster to render than compositing a
   background, overlay image and SVG text (but less convenient).
-* Throttle button updates. `ui.throttle: 100` will ensure that at most 10 updates per second are allowed for a single
-button.
-* For very large gcode files, the benefit of displaying accurate gcode dimensions or rendering the gcode may not be worth
+- Throttle button updates. `ui.throttle: 100` will ensure that at most 10 updates per second are allowed for a single
+  button.
+- For very large gcode files, the benefit of displaying accurate gcode dimensions or rendering the gcode may not be worth
   the cost of parsing the gcode. You can limit the number of gcode lines which will be processed with the `ui.gcodeLimit`
   setting.
 
@@ -44,25 +44,27 @@ location.
 {
   "buttons": {
     "button_1": {
-      "actions": [{
-        "action": "setRapids",
-        "arguments": ["25"]
-      }],
+      "actions": [
+        {
+          "action": "setRapids",
+          "arguments": ["25"]
+        }
+      ],
       "if": "cnc.overrides.rapids === 25"
     },
     "button_2": {
-      "actions": [{
-        "action": "setRapids",
-        "arguments": ["50"]
-      }],
+      "actions": [
+        {
+          "action": "setRapids",
+          "arguments": ["50"]
+        }
+      ],
       "if": "cnc.overrides.rapids === 50"
     }
   },
   "scenes": {
     "home": {
-      "buttons": [
-        ["back", ["button_1", "button_2"]]
-      ]
+      "buttons": [["back", ["button_1", "button_2"]]]
     }
   }
 }
@@ -80,25 +82,27 @@ condition.
 {
   "buttons": {
     "button_1": {
-      "actions": [{
-        "action": "setRapids",
-        "arguments": ["25"]
-      }],
+      "actions": [
+        {
+          "action": "setRapids",
+          "arguments": ["25"]
+        }
+      ],
       "disabled": "cnc.overrides.rapids === 25"
     },
     "button_2": {
-      "actions": [{
-        "action": "setRapids",
-        "arguments": ["50"]
-      }],
+      "actions": [
+        {
+          "action": "setRapids",
+          "arguments": ["50"]
+        }
+      ],
       "disabled": "cnc.overrides.rapids === 50"
     }
   },
   "scenes": {
     "home": {
-      "buttons": [
-        ["back", "button_1", "button_2"]
-      ]
+      "buttons": [["back", "button_1", "button_2"]]
     }
   }
 }

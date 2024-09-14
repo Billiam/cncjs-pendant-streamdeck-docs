@@ -13,16 +13,16 @@ summary: Web and Stream Deck installation instructions
 3. Update the `config.json` file with your connection information in the [`cncjs`]({{< ref "configure#cncjs" >}}) section.
 4. Edit your `~/.cncrc` file, adding a mount point for this pendant
 
-    ```json
-    {
-      "mountPoints": [
-        {
-          "route": "grid",
-          "target": "/home/pi/cncjs-pendant-streamdeck"
-        }
-      ]
-    }
-    ```
+   ```json
+   {
+     "mountPoints": [
+       {
+         "route": "grid",
+         "target": "/home/pi/cncjs-pendant-streamdeck"
+       }
+     ]
+   }
+   ```
 
 5. Restart CNCjs
 

@@ -26,9 +26,9 @@ when navigating back with [`backScene`]({{< ref "#backscene" >}}).
 Change to the selected scene. [`backScene`]({{< ref "#backscene" >}}) will return to the previous scene where the
 navigation was triggered.
 
-| Argument | Description             |
-|----------|-------------------------|
-| scene id | The scene to change to  |
+| Argument | Description            |
+| -------- | ---------------------- |
+| scene id | The scene to change to |
 
 {{< example >}}
 
@@ -49,18 +49,18 @@ navigation was triggered.
 Change to the selected scene, clearing all back button history. This can be used to return "home" without allowing a
 [`backScene`](#backscene) action afterward
 
-| Argument | Description             |
-|----------|-------------------------|
-| scene id | The scene to change to  |
+| Argument | Description            |
+| -------- | ---------------------- |
+| scene id | The scene to change to |
 
 ### `swapScene`
 
 Replace the current scene with the selected scene. `backScene` will return to the scene _before_ the scene where the
 action was triggered. This can be used to apparently change several button states at once invisibly.
 
-| Argument | Description             |
-|----------|-------------------------|
-| scene id | The scene to change to  |
+| Argument | Description            |
+| -------- | ---------------------- |
+| scene id | The scene to change to |
 
 ### `backScene`
 
@@ -73,7 +73,7 @@ Returns to the previous scene.
 Jog in the given direction, based on [`jogDistance`](#jogdistance)
 
 | Argument | Description                                           |
-|----------|-------------------------------------------------------|
+| -------- | ----------------------------------------------------- |
 | sign     | The direction of motion. One of `-` or `+`            |
 | axis     | The axis to move, one of `x`, `y`, `z`, `a`, `b`, `c` |
 
@@ -85,7 +85,7 @@ Based on [`jogSpeed`](#jogspeed) and the [`machine.axisSpeeds`]({{< ref "configu
 directions may be active at the same time.
 
 | Argument | Description                                           |
-|----------|-------------------------------------------------------|
+| -------- | ----------------------------------------------------- |
 | sign     | The direction of motion. One of `-` or `+`            |
 | axis     | The axis to move, one of `x`, `y`, `z`, `a`, `b`, `c` |
 
@@ -112,7 +112,7 @@ directions may be active at the same time.
 Stop smooth jogging in the given direction.
 
 | Argument | Description                                           |
-|----------|-------------------------------------------------------|
+| -------- | ----------------------------------------------------- |
 | sign     | The direction of motion. One of `-` or `+`            |
 | axis     | The axis to move, one of `x`, `y`, `z`, `a`, `b`, `c` |
 
@@ -121,7 +121,7 @@ Stop smooth jogging in the given direction.
 Change the current jog distance, which affects future [`jog`](#jog) distances.
 
 | Argument | Description                                                                 |
-|----------|-----------------------------------------------------------------------------|
+| -------- | --------------------------------------------------------------------------- |
 | sign     | Whether to increase or decrease the current jog distance. One of `-` or `+` |
 
 ### `jogSpeed`
@@ -129,7 +129,7 @@ Change the current jog distance, which affects future [`jog`](#jog) distances.
 Change the current smooth jog speed, which affects future [`smoothjog`](#startsmoothjog) speeds.
 
 | Argument | Description                                                                     |
-|----------|---------------------------------------------------------------------------------|
+| -------- | ------------------------------------------------------------------------------- |
 | sign     | Whether to increase or decrease the current smooth jog speed. One of `-` or `+` |
 
 ## Interface actions
@@ -181,7 +181,7 @@ Reset the spindle speed override to 100%
 Change the rapid speed override
 
 | Argument | Description                                     |
-|----------|-------------------------------------------------|
+| -------- | ----------------------------------------------- |
 | speed    | The new rapid speed. One of [`25`, `50`, `100`] |
 
 ## User flag actions
@@ -198,7 +198,7 @@ restarted.
 Associate an arbitrary name with a string value
 
 | Argument | Description                             |
-|----------|-----------------------------------------|
+| -------- | --------------------------------------- |
 | key      | A name to associate with a string value |
 | value    | The value to save in the above key      |
 
@@ -207,7 +207,7 @@ Associate an arbitrary name with a string value
 Remove an existing user flag
 
 | Argument | Description                  |
-|----------|------------------------------|
+| -------- | ---------------------------- |
 | key      | The user flag name to remove |
 
 ### `toggleUserFlag`
@@ -217,7 +217,7 @@ Toggle a user flag.
 The user flag does not need to exist before toggling. It will be set to `true` on the first toggle
 
 | Argument | Description                  |
-|----------|------------------------------|
+| -------- | ---------------------------- |
 | key      | The user flag name to remove |
 
 ## Numeric input actions
@@ -227,7 +227,7 @@ The user flag does not need to exist before toggling. It will be set to `true` o
 Adds one or more characters to the end of the current numeric input
 
 | Argument | Description                                     |
-|----------|-------------------------------------------------|
+| -------- | ----------------------------------------------- |
 | value    | The string to append to the current input value |
 
 ### `inputCommand`
@@ -235,13 +235,13 @@ Adds one or more characters to the end of the current numeric input
 Input commands modify the current input value.
 
 | Argument | Description                                                                     |
-|----------|---------------------------------------------------------------------------------|
+| -------- | ------------------------------------------------------------------------------- |
 | command  | The operation to take on the current value. One of: [`backspace`, `toggleSign`] |
 
 **Commands:**
 
-* `toggleSign`: Flip the current input value from positive to negative, or negative to positive
-* `backspace`: Remove the last character from the end of the current input value
+- `toggleSign`: Flip the current input value from positive to negative, or negative to positive
+- `backspace`: Remove the last character from the end of the current input value
 
 ### `completeInput`
 
@@ -255,9 +255,9 @@ Move to a specific position, relative to the machine zero position.
 
 Accepts a single string which will be used as arguments to a `G53 G0` move.
 
-| Argument    | Description  |
-|-------------|--------------|
-| position    | New position |
+| Argument | Description  |
+| -------- | ------------ |
+| position | New position |
 
 {{< example >}}
 
@@ -278,9 +278,9 @@ Move to a specific position, relative to the current work zero position.
 
 Accepts a single string which will be used as arguments to a `G0` move.
 
-| Argument    | Description  |
-|-------------|--------------|
-| position    | New position |
+| Argument | Description  |
+| -------- | ------------ |
+| position | New position |
 
 {{< example >}}
 
@@ -302,7 +302,7 @@ Move to a specific absolute machine position on one or more axes.
 When an argument is given as a percentage (ex: `"25%"`), the position will be calculated based on machine dimensions.
 
 | Argument   | Description                |
-|------------|----------------------------|
+| ---------- | -------------------------- |
 | X position | X axis position to move to |
 | Y position | Y axis position to move to |
 | Z position | Z axis position to move to |
@@ -336,7 +336,7 @@ Opens the special `numpad` scene for the selected axis. When a number has been e
 [`completeInput`](#completeinput) action, the machine will be moved to selected position on the axis.
 
 | Argument | Description                                           |
-|----------|-------------------------------------------------------|
+| -------- | ----------------------------------------------------- |
 | axis     | The axis to move, one of `x`, `y`, `z`, `a`, `b`, `c` |
 
 ### `enterWcs`
@@ -346,7 +346,7 @@ Opens the special `numpad` scene for the selected axis. When a number has been e
 selected value
 
 | Argument | Description                                           |
-|----------|-------------------------------------------------------|
+| -------- | ----------------------------------------------------- |
 | axis     | The axis to move, one of `x`, `y`, `z`, `a`, `b`, `c` |
 
 ## Gcode actions
@@ -364,7 +364,7 @@ Clears cncjs's loaded gcode, if a gcode file has been loaded
 Run arbitrary gcode
 
 | Argument | Description  |
-|----------|--------------|
+| -------- | ------------ |
 | gcode    | Gcode to run |
 
 ### `macro`
@@ -378,7 +378,7 @@ the second argument.
 If the first argument (the UUID) is not provided, the second one (the name) must be instead, and vice-versa.
 
 | Argument   | Description                   |
-|------------|-------------------------------|
+| ---------- | ----------------------------- |
 | macro id   | The UUID of the macro to run. |
 | macro name | The name of the macro to run. |
 
@@ -415,7 +415,7 @@ using the second argument. The UUID can be found in your `.cncrc` config file.
 If the first argument (the UUID) is not provided, the second one (the title) must be instead, and vice-versa.
 
 | Argument      | Description                     |
-|---------------|---------------------------------|
+| ------------- | ------------------------------- |
 | command id    | The UUID of the command to run  |
 | command title | The title of the command to run |
 

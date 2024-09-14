@@ -10,13 +10,19 @@ a code {
     font-size: 0.8rem;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     code {
       background: transparent;
     }
   }
 
-  h3, h4 {
+  h3,
+  h4 {
     font-weight: 300;
   }
 }
@@ -38,7 +44,8 @@ h3 {
   margin-top: 30px;
 }
 
-.table, .content table {
+.table,
+.content table {
   font-size: 0.9em;
   th {
     background-color: #eee;

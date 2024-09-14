@@ -17,14 +17,14 @@ You can use the [Config Validator]({{< ref "validator" >}}) to verify your confi
 
 The top level configuration object has the following keys:
 
-| Key                             | Type                   | Description                               |
-|---------------------------------|------------------------|-------------------------------------------|
-| [`cncjs`](#cncjs)               | {{< type "Object" >}}  | Connection information                    |
-| [`ui`](#ui)                     | {{< type "Object" >}}  | Global grid size and default colors       |
-| [`streamdeckUi`](#streamdeckui) | {{< type "Object" >}}  | Stream Deck-only overrides to `ui`        |
-| [`buttons`](#buttons)           | {{< type "Object" >}}  | Button display and actions                |
-| [`scenes`](#scenes)             | {{< type "Object" >}}  | Button layout on individual pages         |
-| [`machine`](#machine)           | {{< type "Object" >}}  | Machine axes and per-axis speed modifiers |
+| Key                             | Type                  | Description                               |
+| ------------------------------- | --------------------- | ----------------------------------------- |
+| [`cncjs`](#cncjs)               | {{< type "Object" >}} | Connection information                    |
+| [`ui`](#ui)                     | {{< type "Object" >}} | Global grid size and default colors       |
+| [`streamdeckUi`](#streamdeckui) | {{< type "Object" >}} | Stream Deck-only overrides to `ui`        |
+| [`buttons`](#buttons)           | {{< type "Object" >}} | Button display and actions                |
+| [`scenes`](#scenes)             | {{< type "Object" >}} | Button layout on individual pages         |
+| [`machine`](#machine)           | {{< type "Object" >}} | Machine axes and per-axis speed modifiers |
 
 ## `cncjs`
 
@@ -45,15 +45,15 @@ Used to configure connection to the cncjs server, and controller serial port
 }
 ```
 
-| Key                      | Type                                          | Description                                                                                                                   |
-|--------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| `accessTokenExpiration`  | {{< type "String" >}}, {{< type "Integer" >}} | Web token expiration duration, in seconds or as a duration string. Default: `30d`. {{< badge "success" "Stream Deck only" >}} |
-| `baudRate`               | {{< type "Integer" >}}                        | Serial connection baud rate                                                                                                   |
-| `port`                   | {{< type "String" >}}                         | Serial connection port                                                                                                        |
-| `controllerType`         | {{< type "Enum" >}}                           | Controller type. Allowed: [`Grbl`]                                                                                            |
-| `socketAddress`          | {{< type "String" >}}                         | URL for socket connection to cncjs. Usually `localhost`                                                                       |
-| `socketPort`             | {{< type "Integer" >}}                        | Socket connection port for cncjs. Usually `80` or `8000`
-| `secure`                 | {{< type "Boolean" >}}                        | If enabled, socket connections will be made over wss, and API requests over https. Default `false`
+| Key                     | Type                                          | Description                                                                                                                   |
+| ----------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `accessTokenExpiration` | {{< type "String" >}}, {{< type "Integer" >}} | Web token expiration duration, in seconds or as a duration string. Default: `30d`. {{< badge "success" "Stream Deck only" >}} |
+| `baudRate`              | {{< type "Integer" >}}                        | Serial connection baud rate                                                                                                   |
+| `port`                  | {{< type "String" >}}                         | Serial connection port                                                                                                        |
+| `controllerType`        | {{< type "Enum" >}}                           | Controller type. Allowed: [`Grbl`]                                                                                            |
+| `socketAddress`         | {{< type "String" >}}                         | URL for socket connection to cncjs. Usually `localhost`                                                                       |
+| `socketPort`            | {{< type "Integer" >}}                        | Socket connection port for cncjs. Usually `80` or `8000`                                                                      |
+| `secure`                | {{< type "Boolean" >}}                        | If enabled, socket connections will be made over wss, and API requests over https. Default `false`                            |
 
 ## `machine`
 
@@ -73,7 +73,7 @@ Machine axes and per-axis speed modifiers
 ```
 
 | Key                                | Type                                        | Description                                                     |
-|------------------------------------|---------------------------------------------|-----------------------------------------------------------------|
+| ---------------------------------- | ------------------------------------------- | --------------------------------------------------------------- |
 | `axes`                             | {{< type "String[]" >}}                     | Array of axes in use. Allowed values: [`a`,`b`,`c`,`x`,`y`,`z`] |
 | [`axisSpeeds`](#machineaxisspeeds) | [{{< type "Object" >}}](#machineaxisspeeds) | Per-axis speed overrides, used for smooth jogging               |
 
@@ -83,7 +83,7 @@ Override smooth jog speeds on a per-axis basis. Allows moving specific axes slow
 travel speed.
 
 | Key | Type                  | Description                                          |
-|-----|-----------------------|------------------------------------------------------|
+| --- | --------------------- | ---------------------------------------------------- |
 | `a` | {{< type "Number" >}} | Travel speed multiplier for the A axis. Default: `1` |
 | `b` | {{< type "Number" >}} | Travel speed multiplier for the B axis. Default: `1` |
 | `c` | {{< type "Number" >}} | Travel speed multiplier for the C axis. Default: `1` |
@@ -132,7 +132,7 @@ Configuration for global interface settings.
 ```
 
 | Key                             | Type                                          | Description                                                                                                                                              |
-|---------------------------------|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `bgColor`                       | {{< type "Integer" >}}, {{< type "String" >}} | Default background color for buttons. May be a color string or [palette](#uipalette) index                                                               |
 | `brightness`                    | {{< type "Integer" >}}                        | Default brightness. [`10` – `100`] {{< badge "success" "Stream Deck only" >}}                                                                            |
 | `columns`                       | {{< type "Integer" >}}                        | Number of columns to display                                                                                                                             |
@@ -155,7 +155,7 @@ Gcode preview can use different colors for rapid travel, straight and curved cut
 hex `#001122` etc. Palette colors are not supported here.
 
 | Key    | Type                  | Description                              |
-|--------|-----------------------|------------------------------------------|
+| ------ | --------------------- | ---------------------------------------- |
 | `G0`   | {{< type "String" >}} | Color to use for rapid travel moves.     |
 | `G1`   | {{< type "String" >}} | Color to use for straight line cut moves |
 | `G2G3` | {{< type "String" >}} | Color to use for curve cut moves         |
@@ -203,16 +203,16 @@ can be referred to by button actions for navigation.
 }
 ```
 
-| Key                                               | Type                                              | Description    |
-|---------------------------------------------------|---------------------------------------------------|----------------|
-| [`<unique scene name>`](#scenesunique-scene-name) | [{{< type "Object" >}}](#scenesunique-scene-name) | A named scene  |
+| Key                                               | Type                                              | Description   |
+| ------------------------------------------------- | ------------------------------------------------- | ------------- |
+| [`<unique scene name>`](#scenesunique-scene-name) | [{{< type "Object" >}}](#scenesunique-scene-name) | A named scene |
 
 ### `scenes/<unique scene name>`
 
 Individual scenes contain a single key: `buttons`.
 
 | Key       | Type                              | Description             |
-|-----------|-----------------------------------|-------------------------|
+| --------- | --------------------------------- | ----------------------- |
 | `buttons` | {{< type "(String, Null)[][]" >}} | Nested array of buttons |
 
 The `buttons` value is a nested array of button IDs, with each inner array representing a row of buttons.
@@ -227,7 +227,7 @@ The following would display eight buttons in a 3x3 grid, with the center square 
 {{< example >}}
 
 ```json
-{ 
+{
   "buttons": [
     ["b1", "b2", "b3"],
     ["b4", null, "b5"],
@@ -260,9 +260,9 @@ different buttons), or other conditional buttons that occupy the same space.
 
 Several scenes have special meaning:
 
-* The `home` scene must exist, as it is used when the webpage or process first loads.
-* The `numpad` scene must exist _if_ any buttons use the `enterWcs` or `enterPosition` button actions.
-* The `gcodeList` scene _should not_ exist in your scenes list, but is always available for navigation events anyway.
+- The `home` scene must exist, as it is used when the webpage or process first loads.
+- The `numpad` scene must exist _if_ any buttons use the `enterWcs` or `enterPosition` button actions.
+- The `gcodeList` scene _should not_ exist in your scenes list, but is always available for navigation events anyway.
 
 ### Gcode File list
 
@@ -272,7 +272,7 @@ scene can have their appearance customized.
 It is recommended that configuration of these buttons be limited background color and image only.
 
 | Key                      | Description                                                           |
-|--------------------------|-----------------------------------------------------------------------|
+| ------------------------ | --------------------------------------------------------------------- |
 | `fileListFile`           | GCode file button                                                     |
 | `fileListFolder`         | Subfolder button                                                      |
 | `fileListPreviousFolder` | "Up a directory" button                                               |
@@ -318,13 +318,13 @@ layout.
 ```
 
 | Key                                                | Type                                                | Description    |
-|----------------------------------------------------|-----------------------------------------------------|----------------|
+| -------------------------------------------------- | --------------------------------------------------- | -------------- |
 | [`<unique button id>`](#buttonsunique-button-name) | [{{< type "Object" >}}](#buttonsunique-button-name) | A named button |
 
 ### `buttons/<unique button name>`
 
 | Key                         | Type                                          | Description                                                                                                                                             |
-|-----------------------------|-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`actions`](#buttonactions) | [{{< type "Object[]" >}}](#buttonactions)     | Actions to take when button is pressed, released or held                                                                                                |
 | `bgColor`                   | {{< type "Integer" >}}, {{< type "String" >}} | Background color. May be a color string or [palette](#uipalette) index                                                                                  |
 | `columns`                   | {{< type "Integer" >}}                        | Number of columns the button will occupy. Default: `1`                                                                                                  |
@@ -346,7 +346,7 @@ When a `hold` action is defined, any following `up` action will be skipped. This
 when pressed briefly, and perform a different action if pressed for a longer period, exclusively.
 
 | Key         | Type                    | Description                                                                                               |
-|-------------|-------------------------|-----------------------------------------------------------------------------------------------------------|
+| ----------- | ----------------------- | --------------------------------------------------------------------------------------------------------- |
 | `action`    | {{< type "String" >}}   | The name of an action which will be triggered based on the `event`. See: [actions]({{< ref "actions" >}}) |
 | `event`     | {{< type "Enum" >}}     | When the action will take place. Allowed: [`up`,`down`,`hold`]. Default: `down`                           |
 | `arguments` | {{< type "String[]" >}} | Options passed to the event. See: [actions]({{< ref "actions" >}}) for specific arguments for each event  |

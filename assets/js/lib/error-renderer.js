@@ -14,7 +14,7 @@ export default (element, { scrollTo }) => {
         result.total++
         return result
       },
-      { error: 0, warning: 0, total: 0 }
+      { error: 0, warning: 0, total: 0 },
     )
 
     if (errorTypes.total) {
