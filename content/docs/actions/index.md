@@ -144,13 +144,13 @@ Toggle fullscreen {{< badge "primary" "web only" >}}
 
 ## Override actions
 
-### `feedrate`
+### `increaseFeedrate`
 
-Change the feedrate override
+Increase the feedrate override based on [feedrate interval](#togglefeedrateinterval)
 
-| Argument | Description                                                     |
-|----------|-----------------------------------------------------------------|
-| sign     | Whether to increase or decrease the feedrate. One of `-` or `+` |
+### `decreaseFeedrate`
+
+Decrease the feedrate override based on [feedrate interval](#togglefeedrateinterval)
 
 ### `toggleFeedrateInterval`
 
@@ -160,13 +160,13 @@ Toggle how much the feedrate is changed by the [feedrate action](#feedrate), eit
 
 Reset the feedrate override to 100%
 
-### `spindle`
+### `increaseSpindle`
 
-Change the spindle speed override based on the [spindle interval](#togglespindleinterval)
+Increase the spindle speed override based on the [spindle interval](#togglespindleinterval)
 
-| Argument | Description                                                          |
-|----------|----------------------------------------------------------------------|
-| sign     | Whether to increase or decrease the spindle speed. One of `-` or `+` |
+### `decreaseSpindle`
+
+Increase the spindle speed override based on the [spindle interval](#togglespindleinterval)
 
 ### `toggleSpindleInterval`
 
@@ -202,7 +202,7 @@ Associate an arbitrary name with a string value
 | key      | A name to associate with a string value |
 | value    | The value to save in the above key      |
 
-### `deleteUserFlag`
+### `clearUserFlag`
 
 Remove an existing user flag
 
@@ -301,6 +301,9 @@ Move to a specific absolute machine position on one or more axes.
 
 When an argument is given as a percentage (ex: `"25%"`), the position will be calculated based on machine dimensions.
 
+Previously, `goto` also supported non-percentage movement. However, this has been deprecated in favor of 
+[absoluteMachinePosition]({{< ref "#absolutemachineposition" >}}) and [absoluteWorkPosition]({{< ref "#absoluteworkposition" >}}), and the previous functionality will be removed in a later version.
+
 | Argument   | Description                |
 | ---------- | -------------------------- |
 | X position | X axis position to move to |
@@ -355,6 +358,14 @@ selected value
 
 Refresh the cncjs watch folder and open the [file list]({{< ref "configure#gcode-file-list" >}})
 
+### `sortDetails`
+
+Change the sort order of the [file list]({{< ref "configure#gcode-file-list" >}})
+
+| Argument   | Description                                                                              |
+| ---------- | ---------------------------------------------------------------------------------------- |
+| sort order | The new sorting order. One of `alpha_asc`, `alpha_desc`, `created_desc`, `modified_desc` |
+
 ### `clearGcode`
 
 Clears cncjs's loaded gcode, if a gcode file has been loaded
@@ -402,6 +413,10 @@ Parses the currently loaded gcode and jogs around its perimeter.
 **Limitations**: gcode parsing and perimeter building is not 100% accurate. Some types of arcs (like those on 3 planes),
 may not be processed, resulting in straight line paths between their outermost points. All other arcs will be split into
 small straight line movements which can be misleading for small curves.
+
+### `loadDetailFile`
+
+Used on the file details scene to load the gcode file being inspected. Not usable outside of this scenario.
 
 ## Utility actions
 
