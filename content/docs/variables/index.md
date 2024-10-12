@@ -2,7 +2,7 @@
 title: Variables
 date: 2019-02-11T19:30:08+10:00
 draft: false
-weight: 4
+weight: 50
 summary: Reference for condition and template variables
 ---
 

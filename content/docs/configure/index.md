@@ -2,7 +2,7 @@
 title: 'Configuration'
 date: 2019-02-11T19:30:08+10:00
 draft: false
-weight: 2
+weight: 30
 summary: Configuration reference for the `config.json` file
 ---
 
@@ -125,7 +125,7 @@ Configuration for global interface settings.
     "progressColor": 3,
     "rows": 3,
     "textColor": "#fff",
-    "textShadow": true,
+    "textSize": 1.2,
     "timeout": 180
   }
 }
@@ -138,7 +138,7 @@ Configuration for global interface settings.
 | `columns`                       | {{< type "Integer" >}}                        | Number of columns to display                                                                                                                             |
 | `rows`                          | {{< type "Integer" >}}                        | Number of rows to display                                                                                                                                |
 | `font`                          | {{< type "String" >}}                         | Font to use for text display. Default: `monospace`                                                                                                       |
-| `fontSize`                      | {{< type "Number" >}}                         | Font size to use for text display                                                                                                                        |
+| `fontSize`                      | {{< type "Number" >}}                         | Font size to use for text display {{< badge "success" "Stream Deck only" >}}                                                                             |
 | `lineHeight`                    | {{< type "String" >}}                         | Line height for text display as a percentage of font size. Default: `1.1`                                                                                |
 | [`gcodeColors`](#uigcodecolors) | [{{< type "Object" >}}](#uigcodecolors)       | Line and curve colors for gcode rendering.                                                                                                               |
 | `gcodeLimit`                    | {{< type "Integer" >}}                        | Set a hard limit on the number of lines of gcode that will be processed. Affects rendering and boundary data. {{< badge "success" "Stream Deck only" >}} |
@@ -146,6 +146,7 @@ Configuration for global interface settings.
 | [`palette`](#uipalette)         | [{{< type "String[]" >}}](#uipalette)         | Array of colors that buttons and other color settings may refer to by index                                                                              |
 | `progressColor`                 | {{< type "Integer" >}}, {{< type "String" >}} | Color to use for button hold indicator. May be a color string or [palette](#uipalette) index                                                             |
 | `textColor`                     | {{< type "Integer" >}}, {{< type "String" >}} | Color to use for button text. May be a color string or [palette](#uipalette) index                                                                       |
+| `textSize`                      | {{< type "Number" >}}                         | Font size modifier. Default: `1`. {{< badge "primary" "web only" >}}                                                                             |
 | `throttle`                      | {{< type "Integer" >}}                        | Redraw each button at most once every `throttle` milliseconds. Default: `0`. {{< badge "success" "Stream Deck only" >}}                                  |
 | `timeout`                       | {{< type "Integer" >}}                        | Duration, in seconds, before blanking display. {{< badge "success" "Stream Deck only" >}}                                                                |
 

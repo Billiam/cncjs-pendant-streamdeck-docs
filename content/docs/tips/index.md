@@ -2,7 +2,7 @@
 title: Tips
 date: 2022-07-20T18:47:00-06:00
 draft: false
-weight: 20
+weight: 60
 summary: Tips for working configuring the pendant
 ---
 
