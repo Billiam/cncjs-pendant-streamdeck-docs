@@ -133,10 +133,10 @@ chalk@^4.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-cncjs-pendant-streamdeck-validator@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/cncjs-pendant-streamdeck-validator/-/cncjs-pendant-streamdeck-validator-2.0.1.tgz#5cf8d3d963e040cba82e448b5c854fa0178f82ff"
-  integrity sha512-XNxviCRfkT5zIpHNfdLHDODw8FeGTdtkR2kHlNs/pVar1RdZ4jMT8UlCcwAtPM89uUaMnMzt7ho1YBrUh4D0YQ==
+cncjs-pendant-streamdeck-validator@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/cncjs-pendant-streamdeck-validator/-/cncjs-pendant-streamdeck-validator-2.1.0.tgz"
+  integrity sha512-SDBCu7A1H8sNvQ5A6BI0p4LdkHCxMoBthQgXEzFiYS+smgXtrvGKt/9/rxz9arfLi3xoJ6n2V88nvWRjfNPzEA==
   dependencies:
     chalk "^4.0.0"
     commander "^9.4.0"
@@ -336,7 +336,7 @@ once@^1.3.0:
 
 prettier@^3.3.3:
   version "3.3.3"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.3.3.tgz#30c54fe0be0d8d12e6ae61dbb10109ea00d53105"
+  resolved "https://registry.npmjs.org/prettier/-/prettier-3.3.3.tgz"
   integrity sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==
 
 punycode@1.3.2:
