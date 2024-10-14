@@ -121,3 +121,9 @@ To make a button _do_ something, you can add one or more action behaviors. An ac
 In the default configuration, most navigation actions are triggered on mouse release ("up"), while more potentially dangerous actions (like running a macro) are triggered by the "hold" event.
 
 For a detailed list of actions and their available options, see [Actions]({{< ref "actions" >}}).
+
+## Saving
+
+When you're done editing, you can download your new configuration using the save icon in the upper right corner. After downloading,
+replace your current `cncjs-pendant-streamdeck` config.json with this new one. If using the stream deck service,
+you'll need to restart it for your changes to take effect.
