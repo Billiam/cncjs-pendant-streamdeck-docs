@@ -1,6 +1,6 @@
 ---
 title: Editor
-date: 2024-10-12T16:33:08+5:00
+date: 2024-10-12T16:33:08+05:00
 draft: false
 weight: 20
 summary: Editor usage information
