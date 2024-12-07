@@ -17,7 +17,7 @@ summary: Web and Stream Deck installation instructions
    {
      "mountPoints": [
        {
-         "route": "grid",
+         "route": "/grid",
          "target": "/home/pi/cncjs-pendant-streamdeck"
        }
      ]
