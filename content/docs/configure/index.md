@@ -51,7 +51,7 @@ Used to configure connection to the cncjs server, and controller serial port
 | `baudRate`              | {{< type "Integer" >}}                        | Serial connection baud rate                                                                                                   |
 | `port`                  | {{< type "String" >}}                         | Serial connection port                                                                                                        |
 | `controllerType`        | {{< type "Enum" >}}                           | Controller type. Allowed: [`Grbl`]                                                                                            |
-| `socketAddress`         | {{< type "String" >}}                         | URL for socket connection to cncjs. Usually `localhost`, the server's IP address, `cncjs.local` or similar                  |
+| `socketAddress`         | {{< type "String" >}}                         | URL for socket connection to cncjs. Usually `localhost`, the server's IP address, `cncjs.local` or similar                    |
 | `socketPort`            | {{< type "Integer" >}}                        | Socket connection port for cncjs. Usually `80` or `8000`                                                                      |
 | `secure`                | {{< type "Boolean" >}}                        | If enabled, socket connections will be made over wss, and API requests over https. Default `false`                            |
 
@@ -146,7 +146,7 @@ Configuration for global interface settings.
 | [`palette`](#uipalette)         | [{{< type "String[]" >}}](#uipalette)         | Array of colors that buttons and other color settings may refer to by index                                                                              |
 | `progressColor`                 | {{< type "Integer" >}}, {{< type "String" >}} | Color to use for button hold indicator. May be a color string or [palette](#uipalette) index                                                             |
 | `textColor`                     | {{< type "Integer" >}}, {{< type "String" >}} | Color to use for button text. May be a color string or [palette](#uipalette) index                                                                       |
-| `textSize`                      | {{< type "Number" >}}                         | Font size modifier. Default: `1`. {{< badge "primary" "web only" >}}                                                                             |
+| `textSize`                      | {{< type "Number" >}}                         | Font size modifier. Default: `1`. {{< badge "primary" "web only" >}}                                                                                     |
 | `throttle`                      | {{< type "Integer" >}}                        | Redraw each button at most once every `throttle` milliseconds. Default: `0`. {{< badge "success" "Stream Deck only" >}}                                  |
 | `timeout`                       | {{< type "Integer" >}}                        | Duration, in seconds, before blanking display. {{< badge "success" "Stream Deck only" >}}                                                                |
 
@@ -174,11 +174,7 @@ This helps keep your color choices consistent, and allows changing many colors a
 
 ```json
 {
-  "palette": [
-    "#ccc",
-    "rgb(0, 100, 255)",
-    "salmon"
-  ]
+  "palette": ["#ccc", "rgb(0, 100, 255)", "salmon"]
 }
 ```
 
@@ -246,13 +242,7 @@ different buttons), or other conditional buttons that occupy the same space.
 ```json
 {
   "buttons": [
-    [
-      "row1_button",
-      [
-        "conditional_button1",
-        "conditional_button2"
-      ]
-    ],
+    ["row1_button", ["conditional_button1", "conditional_button2"]],
     ["row2_button"],
     ["row3_button"]
   ]

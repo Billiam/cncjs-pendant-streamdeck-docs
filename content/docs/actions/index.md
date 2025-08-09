@@ -154,7 +154,7 @@ Decrease the feedrate override based on [feedrate interval](#togglefeedrateinter
 
 ### `toggleFeedrateInterval`
 
-Toggle how much the feedrate is changed by the [feedrate action](#feedrate), either 1% or 10%.
+Toggle how much the feedrate is changed by the [feedrate action](#increasefeedrate), either 1% or 10%.
 
 ### `resetFeedrate`
 
@@ -170,7 +170,7 @@ Increase the spindle speed override based on the [spindle interval](#togglespind
 
 ### `toggleSpindleInterval`
 
-Toggle how much the spindle speed is changed by the [spindle action](#spindle), either 1% or 10%.
+Toggle how much the spindle speed is changed by the [spindle action](#increasespindle), either 1% or 10%.
 
 ### `resetSpindle`
 
@@ -187,11 +187,11 @@ Change the rapid speed override
 ### `enterSpindleSpeed`
 
 Opens the special `numpad` scene for the selected axis. When a number has been entered and confirmed with the
-[`completeInput`](#completeinput) action, the spindle rotation will be set to the selected value and configured direction using
-M3 or M4 gcode.
+[`completeInput`](#completeinput) action, the spindle rotation will be set to the selected value and configured
+direction using M3 or M4 gcode.
 
-| Argument | Description                                                                 |
-| -------- | --------------------------------------------------------------------------- |
+| Argument  | Description                                                                |
+| --------- | -------------------------------------------------------------------------- |
 | direction | The direction of motion for the selected spindle speed, one of `CW`, `CCW` |
 
 ## User flag actions
@@ -311,8 +311,10 @@ Move to a specific absolute machine position on one or more axes.
 
 When an argument is given as a percentage (ex: `"25%"`), the position will be calculated based on machine dimensions.
 
-Previously, `goto` also supported non-percentage movement. However, this has been deprecated in favor of 
-[absoluteMachinePosition]({{< ref "#absolutemachineposition" >}}) and [absoluteWorkPosition]({{< ref "#absoluteworkposition" >}}), and the previous functionality will be removed in a later version.
+Previously, `goto` also supported non-percentage movement. However, this has been deprecated in favor of
+[absoluteMachinePosition]({{< ref "#absolutemachineposition" >}}) and
+[absoluteWorkPosition]({{< ref "#absoluteworkposition" >}}), and the previous functionality will be removed in a later
+version.
 
 | Argument   | Description                |
 | ---------- | -------------------------- |
