@@ -20,8 +20,7 @@ the editor to show the state of cncjs during use.
 
 ### Connection settings
 
-{{< figure src="images/connection-settings.png" alt="Connection settings form dialog. Includes fields for the socket
-address, port and a toggle for connecting using secure web sockets, and serial port and baud rate settings" >}}
+{{< figure src="images/connection-settings.png" alt="Connection settings form dialog. Includes fields for the socket address, port and a toggle for connecting using secure web sockets, and serial port and baud rate settings" >}}
 
 The socket address and port should point to your cncjs server.
 
@@ -29,17 +28,14 @@ The serial port and baud rate refer to the connection from cncjs to your CNC con
 
 ### CNC settings
 
-{{< figure src="images/cnc-settings.png" alt="CNC settings dialog with selections for available axes (x, y, z, a, b and
- c), and percentage fields to control smooth jogging speed" >}}
+{{< figure src="images/cnc-settings.png" alt="CNC settings dialog with selections for available axes (x, y, z, a, b and c), and percentage fields to control smooth jogging speed" >}}
 
 In the CNC settings section, you can enable or disable the axes your CNC supports,
 change the relative smoothjog speeds for specific axes.
 
 ### UI settings
 
-{{< figure src="images/ui-settings.png" alt="UI setting dialog with fields for the number of rows and columns to
-display, font size and line height, color palette selection, and color options for button background, page, text, and
-progress indicator" >}}
+{{< figure src="images/ui-settings.png" alt="UI setting dialog with fields for the number of rows and columns to display, font size and line height, color palette selection, and color options for button background, page, text, and progress indicator" >}}
 
 In the UI settings, you can change the color palette (which lets you maintain consistent colors in your buttons that can
 all be updated together), and other general colors, as well as the font and dimension settings.
@@ -50,8 +46,7 @@ overriding the default settings from the UI tab.
 
 ## Layout editor
 
-{{< figure src="images/scenes.png" title="The home scene" alt="3 by 5 grid of buttons with edit icons, with a tab list
-of scene names at the top" >}}
+{{< figure src="images/scenes.png" title="The home scene" alt="3 by 5 grid of buttons with edit icons, with a tab list of scene names at the top" >}}
 
 The scene list is the list of tabs at the top of the layout view. A scene is a named page containing buttons.
 
@@ -100,8 +95,7 @@ no effect on a physical stream deck.
 
 ### Dimensions
 
-{{< figure src="images/dimensions.png" alt="Button dimensions dialog with integer fields for rows and columns, and a
-grid to show the resulting button span" >}}
+{{< figure src="images/dimensions.png" alt="Button dimensions dialog with integer fields for rows and columns, and a grid to show the resulting button span" >}}
 
 A button can span multiple rows and columns, which can be helpful for making large, prominent buttons, or for visual
 grouping. In the web view, the button will be displayed as a single large button, with its icon centered. On a stream
@@ -109,9 +103,7 @@ deck, this large button will cover multiple physical buttons, but will still hav
 
 ### Text settings
 
-{{< figure src="images/text.png" alt="Text setting containing a large text block for button contents with a 'variables'
-dropdown below, a text alignment grid to select the text position within the button, and a percentage field for
-overriding the text size" >}}
+{{< figure src="images/text.png" alt="Text setting containing a large text block for button contents with a 'variables' dropdown below, a text alignment grid to select the text position within the button, and a percentage field for overriding the text size" >}}
 
 Optionally, a button can display text inside. This is usually used without an icon, or with images with a small and a
 lot of empty space, to leave room for the text itself.
@@ -125,8 +117,7 @@ The text itself can be static text of your choosing, or can include variable val
 
 ### Display conditions
 
-{{< figure src="images/conditions.png" alt="Fields for 'If' and 'Disabled' button settings. The 'If' field contains
-'ui.userFlags.showAbsolutePosition === true'" >}}
+{{< figure src="images/conditions.png" alt="Fields for 'If' and 'Disabled' button settings. The 'If' field contains 'ui.userFlags.showAbsolutePosition === true'" >}}
 
 The `If` field controls a button's visibility, so that it can be hidden when it's not relevant, allowing
 buttons in the same space to appear instead.
@@ -149,8 +140,7 @@ This is useful for buttons that are not always relevant, but should not disappea
 
 ### Actions
 
-{{< figure src="images/actions.png" alt="Button action form, containing a dropdown for 'Action name', a dropdown for the
-type of mouse event that will cause the action to trigger, and option relevant to the specific action selected" >}}
+{{< figure src="images/actions.png" alt="Button action form, containing a dropdown for 'Action name', a dropdown for the type of mouse event that will cause the action to trigger, and option relevant to the specific action selected" >}}
 
 To make a button _do_ something, you can add one or more action behaviors. An action can be triggered based on mouse
 events (like on press, on release, or on hold). A button can have different actions when held vs when pressed.
