@@ -262,7 +262,7 @@ different buttons), or other conditional buttons that occupy the same space.
 Several scenes have special meaning:
 
 - The `home` scene must exist, as it is used when the webpage or process first loads.
-- The `numpad` scene must exist _if_ any buttons use the `enterWcs` or `enterPosition` button actions.
+- The `numpad` scene must exist _if_ any buttons use the `enterWcs`, `enterPosition`, or `enterSpindleSpeed` button actions.
 - The `gcodeList` scene _should not_ exist in your scenes list, but is always available for navigation events anyway.
 
 ### Gcode File list

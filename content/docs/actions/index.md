@@ -184,6 +184,16 @@ Change the rapid speed override
 | -------- | ----------------------------------------------- |
 | speed    | The new rapid speed. One of [`25`, `50`, `100`] |
 
+### `enterSpindleSpeed`
+
+Opens the special `numpad` scene for the selected axis. When a number has been entered and confirmed with the
+[`completeInput`](#completeinput) action, the spindle rotation will be set to the selected value and configured direction using
+M3 or M4 gcode.
+
+| Argument | Description                                                                 |
+| -------- | --------------------------------------------------------------------------- |
+| direction | The direction of motion for the selected spindle speed, one of `CW`, `CCW` |
+
 ## User flag actions
 
 User flags are arbitrary, temporary variables that can be displayed as [dynamic text]({{< ref "variables#templates" >}})
